@@ -11,9 +11,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-full bg-off-white flex items-center justify-center">
-                <span className="text-saudi-green text-sm font-bold">FB</span>
+                <span className="text-saudi-green text-sm font-bold">FR</span>
               </div>
-              <span className="text-off-white font-playfair text-2xl font-semibold">Fresh Bites</span>
+              <span className="text-off-white font-playfair text-2xl font-semibold">FRSH</span>
             </div>
             <p className="mb-6 text-off-white/80">
               Delivering authentic Saudi cuisine made with fresh, locally sourced ingredients 
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className="border-t border-off-white/20 pt-8 mt-8">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
             <p className="text-off-white/60 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} Fresh Bites. All rights reserved.
+              &copy; {currentYear} FRSH. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-off-white/60 text-sm hover:text-off-white">Privacy Policy</a>

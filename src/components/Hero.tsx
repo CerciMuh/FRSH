@@ -14,7 +14,7 @@ const Hero = () => {
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-saudi-green mb-6">
-            Fresh Saudi <br />
+            FRSH Saudi <br />
             <span className="text-saudi-green-light">Meals Delivered</span>
           </h1>
           <p className="text-lg md:text-xl text-saudi-green/80 mb-8 max-w-md">
