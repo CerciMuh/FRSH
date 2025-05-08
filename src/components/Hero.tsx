@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="relative order-1 md:order-2 flex items-center justify-center">
           <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-frsh-green rounded-full absolute opacity-5"></div>
           <img 
-            src="public/lovable-uploads/0dd5fa73-c84d-4995-89fc-245ae5e00481.png" 
+            src="public/lovable-uploads/Hero-frsh.png" 
             alt="Fresh, healthy meals"
             className="w-full h-auto max-w-md rounded-lg shadow-2xl relative z-10"
           />

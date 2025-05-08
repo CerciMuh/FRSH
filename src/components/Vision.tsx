@@ -1,5 +1,5 @@
 
-import { Leaf, Star, Heart } from 'lucide-react'; 
+import { Clock, Hand, Heart, Leaf, Star } from 'lucide-react';
 
 const Vision = () => {
   return (
@@ -9,11 +9,7 @@ const Vision = () => {
           <div className="p-8 border border-frsh-cream/20 rounded-lg hover:bg-frsh-green-light transition-all duration-300">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-frsh-cream/10 rounded-full flex items-center justify-center">
-                <img 
-                  src="public/lovable-uploads/3304c707-00cf-444b-8964-f3c62edfc418.png" 
-                  alt="FRSH Logo" 
-                  className="w-8 h-8"
-                />
+              <Hand className="w-6 h-6 text-frsh-yellow" />
               </div>
             </div>
             <h2 className="text-3xl font-playfair font-semibold mb-6 text-center">The FRSH Mission</h2>
@@ -69,11 +65,9 @@ const Vision = () => {
             
             <div className="p-6 bg-frsh-green-light rounded-lg">
               <div className="w-12 h-12 bg-frsh-yellow rounded-full flex items-center justify-center mb-4 mx-auto">
-                <img 
-                  src="public/lovable-uploads/3304c707-00cf-444b-8964-f3c62edfc418.png" 
-                  alt="FRSH Logo" 
-                  className="w-6 h-6"
-                />
+
+              <Clock className="w-6 h-6 text-frsh-gray-dark" />
+
               </div>
               <h3 className="text-xl font-medium mb-3 text-center">Convenience</h3>
               <p className="text-frsh-cream/80 text-center">
