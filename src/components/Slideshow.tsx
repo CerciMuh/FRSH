@@ -1,14 +1,15 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselApi
 } from "@/components/ui/carousel";
 
 const Slideshow = () => {
+  const [emblaApi, setEmblaApi] = useState<CarouselApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -53,12 +54,33 @@ const Slideshow = () => {
     };
   }, []);
 
+  // Sync index with Embla
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const updateIndex = () => {
+      setActiveIndex(emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on("select", updateIndex);
+    updateIndex();
+
+    return () => {
+      emblaApi.off("select", updateIndex);
+    };
+  }, [emblaApi]);
+
+  // Auto-slide every 5s
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
+      if (emblaApi && emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi?.scrollTo(0); // loop
+      }
     }, 5000);
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [emblaApi]);
 
   return (
     <section id="gallery" className="section-padding bg-frsh-cream">
@@ -71,11 +93,11 @@ const Slideshow = () => {
         </div>
 
         <div className={`md:px-20 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-          <Carousel className="relative" setActiveIndex={setActiveIndex} activeIndex={activeIndex}>
+          <Carousel setApi={setEmblaApi}>
             <CarouselContent>
               {slides.map((slide, index) => (
                 <CarouselItem key={slide.id} className="flex justify-center">
-                  <div className={`w-full h-full p-2 transition-all duration-500 ${activeIndex === index ? 'opacity-100 scale-100' : 'opacity-90 scale-98'}`}>
+                  <div className="w-full h-full p-2 transition-all duration-500">
                     <img 
                       src={slide.image} 
                       alt={slide.alt} 
@@ -85,8 +107,8 @@ const Slideshow = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 md:-left-12 bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform"/>
-            <CarouselNext className="-right-4 md:-right-12 bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform"/>
+            <CarouselPrevious className="bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform"/>
+            <CarouselNext className="bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform"/>
           </Carousel>
           
           <div className="mt-6 flex justify-center gap-2">
@@ -94,7 +116,7 @@ const Slideshow = () => {
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all ${activeIndex === index ? 'bg-frsh-yellow w-6' : 'bg-frsh-green/30'}`}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => emblaApi?.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
