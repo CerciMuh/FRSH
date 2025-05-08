@@ -4,9 +4,8 @@ import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
 import HowItWorks from '@/components/HowItWorks';
 import Features from '@/components/Features';
-import Plans from '@/components/Plans';
-import Testimonials from '@/components/Testimonials';
-import ContactSection from '@/components/ContactSection';
+import Slideshow from '@/components/Slideshow';
+import Vision from '@/components/Vision';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -17,9 +16,8 @@ const Index = () => {
       <AboutUs />
       <HowItWorks />
       <Features />
-      <Plans />
-      <Testimonials />
-      <ContactSection />
+      <Slideshow />
+      <Vision />
       <Footer />
     </div>
   );
