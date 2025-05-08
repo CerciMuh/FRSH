@@ -1,7 +1,7 @@
 
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,8 +43,6 @@ const Navbar = () => {
           <a href="#about" className="text-frsh-green hover:text-frsh-green-light transition-colors">About</a>
           <a href="#how-it-works" className="text-frsh-green hover:text-frsh-green-light transition-colors">How It Works</a>
           <a href="#features" className="text-frsh-green hover:text-frsh-green-light transition-colors">Features</a>
-          <a href="#plans" className="text-frsh-green hover:text-frsh-green-light transition-colors">Plans</a>
-          <a href="#testimonials" className="text-frsh-green hover:text-frsh-green-light transition-colors">Testimonials</a>
           <Button className="bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark">Start My Plan</Button>
         </div>
 
@@ -65,8 +63,6 @@ const Navbar = () => {
             <a href="#about" className="py-3 px-4 hover:bg-frsh-cream-darker rounded-md" onClick={() => setMobileMenuOpen(false)}>About</a>
             <a href="#how-it-works" className="py-3 px-4 hover:bg-frsh-cream-darker rounded-md" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
             <a href="#features" className="py-3 px-4 hover:bg-frsh-cream-darker rounded-md" onClick={() => setMobileMenuOpen(false)}>Features</a>
-            <a href="#plans" className="py-3 px-4 hover:bg-frsh-cream-darker rounded-md" onClick={() => setMobileMenuOpen(false)}>Plans</a>
-            <a href="#testimonials" className="py-3 px-4 hover:bg-frsh-cream-darker rounded-md" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <Button className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark">Start My Plan</Button>
           </div>
         </div>

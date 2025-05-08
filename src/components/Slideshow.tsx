@@ -1,7 +1,4 @@
 
-import { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -14,13 +11,13 @@ const Slideshow = () => {
   const slides = [
     {
       id: 1,
-      image: "public/lovable-uploads/37bd0d07-6f66-4041-a8ad-72b49b6daf76.png",
-      alt: "FRSH color palette"
+      image: "public/lovable-uploads/bilingual-logo-fresh.png",
+      alt: "bilingual logo of FRSH"
     },
     {
       id: 2,
-      image: "public/lovable-uploads/d3f97128-32cd-49be-af59-31e31efc40c2.png",
-      alt: "FRSH food and mood branding"
+      image: "public/lovable-uploads/frsh-picture-landing-page.png",
+      alt: "frsh-picture-landing-page.png"
     },
     {
       id: 3,
@@ -29,23 +26,8 @@ const Slideshow = () => {
     },
     {
       id: 4,
-      image: "public/lovable-uploads/e1a652f5-35b5-41fb-9f74-c0c4629db7ac.png",
-      alt: "FRSH logo variations"
-    },
-    {
-      id: 5,
-      image: "public/lovable-uploads/991b9067-fd11-45de-a25a-6317028d9dd3.png",
-      alt: "FRSH color codes"
-    },
-    {
-      id: 6,
       image: "public/lovable-uploads/deeb5480-297e-4df9-9c0f-cd6b128a7494.png",
       alt: "FRSH mission and vision"
-    },
-    {
-      id: 7,
-      image: "public/lovable-uploads/73a62bf6-e19e-4b3f-b2ba-c364e4027ff6.png", 
-      alt: "FRSH light food branding"
     }
   ];
 

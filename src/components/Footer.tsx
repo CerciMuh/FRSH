@@ -1,5 +1,5 @@
 
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,8 +45,6 @@ const Footer = () => {
               <li><a href="#about" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">About Us</a></li>
               <li><a href="#how-it-works" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">How It Works</a></li>
               <li><a href="#features" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Why Choose Us</a></li>
-              <li><a href="#plans" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Plans & Pricing</a></li>
-              <li><a href="#testimonials" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Testimonials</a></li>
             </ul>
           </div>
 
