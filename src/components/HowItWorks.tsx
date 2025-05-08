@@ -1,62 +1,55 @@
 
+import { Button } from '@/components/ui/button';
+
 const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      title: "Choose Your Meals",
-      description: "Browse our weekly menu of fresh, Saudi-inspired meals and select your favorites."
+      title: "Choose Your Plan",
+      description: "Browse our flexible meal plans and select what works for your lifestyle and dietary needs."
     },
     {
       number: "02",
-      title: "We Prepare Your Order",
-      description: "Our chefs prepare your meals with fresh, locally-sourced ingredients on the day of delivery."
+      title: "Delivered Fresh",
+      description: "We prepare your meals with fresh ingredients and deliver them right to your doorstep."
     },
     {
       number: "03",
-      title: "Fast Delivery",
-      description: "We deliver your meals right to your doorstep in temperature-controlled packaging."
-    },
-    {
-      number: "04",
-      title: "Heat & Enjoy",
-      description: "Heat up your meal in minutes and enjoy a restaurant-quality Saudi dining experience at home."
+      title: "Eat Healthy",
+      description: "Heat, eat and enjoy nutritious, chef-crafted meals any day of the week."
     }
   ];
 
   return (
-    <section id="how-it-works" className="section-padding bg-saudi-green text-off-white">
+    <section id="how-it-works" className="section-padding bg-frsh-green text-frsh-cream">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title text-off-white">How It Works</h2>
-          <p className="section-subtitle text-off-white/80">
-            Getting fresh, authentic Saudi meals delivered to your door is easy.
-            Follow these simple steps to enjoy our delicious cuisine.
+          <h2 className="section-title text-frsh-cream">How It Works</h2>
+          <p className="section-subtitle text-frsh-cream/80">
+            Getting fresh, healthy meals delivered to your door is simple.
+            Follow these easy steps to start your journey to freshness.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div 
               key={index} 
-              className="relative border border-off-white/20 p-6 rounded-lg hover:bg-saudi-green-light transition-colors"
+              className="relative border border-frsh-cream/20 p-8 rounded-lg hover:bg-frsh-green-light transition-colors"
             >
-              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-off-white text-saudi-green flex items-center justify-center font-playfair font-bold">
+              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-frsh-yellow text-frsh-gray-dark flex items-center justify-center font-playfair font-bold">
                 {step.number}
               </div>
-              <h3 className="text-xl font-playfair font-semibold mt-4 mb-3">{step.title}</h3>
-              <p className="text-off-white/80">{step.description}</p>
+              <h3 className="text-2xl font-playfair font-semibold mt-4 mb-3">{step.title}</h3>
+              <p className="text-frsh-cream/80">{step.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 p-6 bg-off-white/10 rounded-lg flex flex-col md:flex-row items-center justify-between">
-          <div className="mb-6 md:mb-0 md:mr-6">
-            <h4 className="text-2xl font-playfair font-semibold mb-2">Weekly Meal Plans Available</h4>
-            <p className="text-off-white/80">Subscribe to our weekly meal plans and save up to 20%.</p>
-          </div>
-          <button className="px-8 py-4 bg-off-white text-saudi-green font-medium rounded-lg hover:bg-off-white-darker transition-colors">
-            View Meal Plans
-          </button>
+        <div className="mt-16 text-center">
+          <Button className="px-8 py-4 bg-frsh-yellow text-frsh-gray-dark font-medium rounded-lg hover:bg-frsh-yellow-light transition-colors">
+            Start My Plan
+          </Button>
         </div>
       </div>
     </section>

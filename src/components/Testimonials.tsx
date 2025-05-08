@@ -8,15 +8,15 @@ const Testimonials = () => {
       id: 1,
       name: "Ahmed Al-Saud",
       role: "Regular Customer",
-      quote: "Fresh Bites has transformed my lunch breaks! Their Kabsa tastes just like my grandmother's recipe, and the delivery is always on time.",
+      quote: "FRSH has transformed my eating habits! The meal quality is exceptional, and I love having healthy options ready to go.",
       image: "https://randomuser.me/api/portraits/men/32.jpg",
       rating: 5
     },
     {
       id: 2,
       name: "Fatima Rahman",
-      role: "Weekly Subscriber",
-      quote: "As a busy professional, their meal subscription has been a lifesaver. The food is always fresh, authentically Saudi, and absolutely delicious.",
+      role: "Monthly Subscriber",
+      quote: "As a busy professional, their meal subscription has been a lifesaver. The food is always fresh, nutritious, and absolutely delicious.",
       image: "https://randomuser.me/api/portraits/women/44.jpg",
       rating: 5
     },
@@ -24,7 +24,7 @@ const Testimonials = () => {
       id: 3,
       name: "Mohammed Qahtani",
       role: "Family Plan Customer",
-      quote: "My entire family looks forward to Fresh Bites delivery days. The variety keeps everyone happy and the quality is consistently excellent.",
+      quote: "My entire family looks forward to FRSH delivery days. The variety keeps everyone happy and the quality is consistently excellent.",
       image: "https://randomuser.me/api/portraits/men/22.jpg",
       rating: 4
     }
@@ -44,7 +44,7 @@ const Testimonials = () => {
     return Array(5).fill(0).map((_, index) => (
       <svg 
         key={index}
-        className={`w-5 h-5 ${index < rating ? 'text-saudi-green' : 'text-gray-300'}`}
+        className={`w-5 h-5 ${index < rating ? 'text-frsh-yellow' : 'text-gray-300'}`}
         fill="currentColor" 
         viewBox="0 0 20 20" 
         xmlns="http://www.w3.org/2000/svg"
@@ -55,22 +55,22 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="section-padding bg-off-white-darker">
+    <section id="testimonials" className="section-padding bg-frsh-cream-darker">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">What Our Customers Say</h2>
           <p className="section-subtitle">
             Don't just take our word for it. Here's what our satisfied customers have to say
-            about their experience with Fresh Bites.
+            about their experience with FRSH.
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
           <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl">
             <div className="flex items-start mb-6">
-              <span className="text-saudi-green text-6xl font-playfair leading-none">"</span>
+              <span className="text-frsh-green text-6xl font-playfair leading-none">"</span>
             </div>
-            <p className="text-xl md:text-2xl text-saudi-green/80 mb-8 font-playfair">
+            <p className="text-xl md:text-2xl text-frsh-gray mb-8 font-playfair">
               {testimonials[currentIndex].quote}
             </p>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
@@ -81,8 +81,8 @@ const Testimonials = () => {
                   className="w-14 h-14 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-medium text-saudi-green">{testimonials[currentIndex].name}</h4>
-                  <p className="text-sm text-saudi-green/70">{testimonials[currentIndex].role}</p>
+                  <h4 className="font-medium text-frsh-green">{testimonials[currentIndex].name}</h4>
+                  <p className="text-sm text-frsh-gray">{testimonials[currentIndex].role}</p>
                 </div>
               </div>
               <div className="flex">
@@ -95,7 +95,7 @@ const Testimonials = () => {
             <Button 
               variant="outline" 
               onClick={handlePrevious}
-              className="w-12 h-12 rounded-full p-0 border-saudi-green text-saudi-green hover:bg-saudi-green hover:text-off-white"
+              className="w-12 h-12 rounded-full p-0 border-frsh-green text-frsh-green hover:bg-frsh-green hover:text-frsh-cream"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -105,13 +105,13 @@ const Testimonials = () => {
               <button 
                 key={index} 
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-saudi-green' : 'bg-saudi-green/30'}`}
+                className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-frsh-green' : 'bg-frsh-green/30'}`}
               ></button>
             ))}
             <Button 
               variant="outline" 
               onClick={handleNext}
-              className="w-12 h-12 rounded-full p-0 border-saudi-green text-saudi-green hover:bg-saudi-green hover:text-off-white"
+              className="w-12 h-12 rounded-full p-0 border-frsh-green text-frsh-green hover:bg-frsh-green hover:text-frsh-cream"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

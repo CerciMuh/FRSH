@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 33 38% 97%;
-    --foreground: 154 75% 18%;
+    --background: 49 56% 94%;
+    --foreground: 164 70% 15%;
 
-    --card: 33 38% 97%;
-    --card-foreground: 154 75% 18%;
+    --card: 49 56% 94%;
+    --card-foreground: 164 70% 15%;
 
-    --popover: 33 38% 97%;
-    --popover-foreground: 154 75% 18%;
+    --popover: 49 56% 94%;
+    --popover-foreground: 164 70% 15%;
 
-    --primary: 154 75% 18%;
-    --primary-foreground: 33 38% 97%;
+    --primary: 164 70% 15%;
+    --primary-foreground: 49 56% 94%;
 
-    --secondary: 33 38% 97%;
-    --secondary-foreground: 154 75% 18%;
+    --secondary: 49 56% 94%;
+    --secondary-foreground: 164 70% 15%;
 
-    --muted: 33 20% 90%;
-    --muted-foreground: 154 30% 40%;
+    --muted: 49 20% 90%;
+    --muted-foreground: 164 30% 40%;
 
-    --accent: 154 65% 95%;
-    --accent-foreground: 154 75% 18%;
+    --accent: 164 65% 95%;
+    --accent-foreground: 164 70% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 33 38% 97%;
+    --destructive-foreground: 49 56% 94%;
 
-    --border: 33 20% 87%;
-    --input: 33 20% 87%;
-    --ring: 154 75% 18%;
+    --border: 49 20% 87%;
+    --input: 49 20% 87%;
+    --ring: 164 70% 15%;
 
     --radius: 0.5rem;
 
@@ -54,7 +54,7 @@
   }
 
   body {
-    @apply bg-off-white text-saudi-green font-inter;
+    @apply bg-frsh-cream text-frsh-gray-dark font-inter;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -67,9 +67,9 @@
 }
 
 .section-title {
-  @apply text-4xl md:text-5xl font-semibold text-saudi-green mb-6 md:mb-8;
+  @apply text-4xl md:text-5xl font-semibold text-frsh-green mb-6 md:mb-8;
 }
 
 .section-subtitle {
-  @apply text-xl md:text-2xl text-saudi-green-light mb-10 md:mb-16 max-w-3xl mx-auto;
+  @apply text-xl md:text-2xl text-frsh-gray mb-10 md:mb-16 max-w-3xl mx-auto;
 }
