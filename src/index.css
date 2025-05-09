@@ -100,7 +100,7 @@
   animation: glow 2s ease-in-out infinite;
 }
 
-/* New animations for enhanced interactivity */
+/* New animations inspired by Leon and Blank Street */
 @keyframes shimmer {
   0% { background-position: -100% 0; }
   100% { background-position: 100% 0; }
@@ -118,7 +118,7 @@
   animation: shimmer 2s infinite;
 }
 
-/* Perspective */
+/* Perspective inspired by Ask Italian */
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -128,7 +128,7 @@
   transform: rotateY(5deg);
 }
 
-/* Custom hover effects */
+/* Custom hover effects inspired by Zambrero */
 .hover-grow {
   @apply transition-transform duration-300;
 }
@@ -137,7 +137,7 @@
   transform: scale(1.05);
 }
 
-/* Interactive background effect */
+/* Interactive background effect inspired by Jahez */
 .interactive-bg {
   position: relative;
   overflow: hidden;
@@ -161,7 +161,7 @@
   opacity: 1;
 }
 
-/* Scroll-triggered animations */
+/* Scroll-triggered animations inspired by Blank Street */
 .fade-in-on-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -173,12 +173,12 @@
   transform: translateY(0);
 }
 
-/* Magnetic effect */
+/* Magnetic effect inspired by Ask Italian */
 .magnetic-effect {
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Smooth reveal animation */
+/* Smooth reveal animation inspired by Leon */
 @keyframes reveal {
   0% { 
     opacity: 0;
@@ -198,7 +198,7 @@
   animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Staggered delay for children */
+/* Staggered delay for children inspired by Ask Italian */
 .stagger-children > * {
   opacity: 0;
 }
@@ -212,3 +212,65 @@
 .stagger-children.active > *:nth-child(3) { animation-delay: 0.3s; }
 .stagger-children.active > *:nth-child(4) { animation-delay: 0.4s; }
 .stagger-children.active > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* New animations inspired by the reference websites */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Blank Street inspired text animation */
+@keyframes textFadeInUp {
+  0% { 
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-fade-in-up {
+  animation: textFadeInUp 0.7s forwards;
+}
+
+/* Leon inspired button hover effect */
+.btn-hover-float {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hover-float:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Jahez inspired ripple effect */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.ripple-effect:hover::after {
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+}

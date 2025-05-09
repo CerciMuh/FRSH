@@ -67,7 +67,7 @@ const Slideshow = () => {
     };
   }, []);
 
-  // Track mouse position for parallax effect
+  // Track mouse position for parallax effect - inspired by Ask Italian
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     setMousePosition({
       x: e.nativeEvent.offsetX,
@@ -91,7 +91,7 @@ const Slideshow = () => {
     };
   }, [emblaApi]);
 
-  // Auto-slide every 5s
+  // Auto-slide every 5s - inspired by Blank Street
   useEffect(() => {
     const interval = setInterval(() => {
       if (emblaApi && emblaApi.canScrollNext()) {
@@ -109,7 +109,7 @@ const Slideshow = () => {
       className="section-padding bg-frsh-cream relative overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated background decorative elements */}
+      {/* Animated background decorative elements - inspired by Jahez */}
       <div 
         className="absolute -left-20 -top-20 w-40 h-40 bg-frsh-yellow/10 rounded-full blur-3xl"
         style={{
@@ -132,6 +132,7 @@ const Slideshow = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
+          {/* Section title with underline animation - inspired by Leon */}
           <div className="inline-block mb-4 relative">
             <h2 className="section-title mb-0 relative z-10">Our Gallery</h2>
             <div 
@@ -152,6 +153,7 @@ const Slideshow = () => {
             isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
+          {/* Carousel inspired by Ask Italian's image transitions */}
           <Carousel setApi={setEmblaApi} className="overflow-visible">
             <CarouselContent>
               {slides.map((slide, index) => (
@@ -168,7 +170,7 @@ const Slideshow = () => {
                       onMouseEnter={() => setIsHovered(index)}
                       onMouseLeave={() => setIsHovered(null)}
                     >
-                      {/* Main image with parallax effect */}
+                      {/* Main image with parallax effect - inspired by Blank Street */}
                       <div className="overflow-hidden rounded-lg">
                         <img 
                           src={slide.image} 
@@ -180,7 +182,7 @@ const Slideshow = () => {
                         />
                       </div>
                       
-                      {/* Interactive overlay */}
+                      {/* Interactive overlay - inspired by Jahez */}
                       <div 
                         className={`absolute inset-0 bg-gradient-to-t from-frsh-green/90 via-frsh-green/40 to-transparent rounded-lg flex flex-col justify-end p-6 transition-all duration-500 ${
                           isHovered === index ? 'opacity-100' : 'opacity-0'
@@ -210,6 +212,7 @@ const Slideshow = () => {
                           </p>
                         </div>
                         
+                        {/* Interactive tags - inspired by Leon */}
                         {index === 0 && (
                           <div 
                             className="flex gap-3 mt-4 transform transition-all duration-500"
@@ -229,14 +232,14 @@ const Slideshow = () => {
                         )}
                       </div>
 
-                      {/* Floating active indicator */}
+                      {/* Floating active indicator - inspired by Blank Street */}
                       {activeIndex === index && (
                         <div className="absolute top-4 right-4 bg-frsh-yellow rounded-full p-1 shadow-lg animate-pulse-soft">
                           <div className="w-1.5 h-1.5 rounded-full bg-frsh-gray-dark"></div>
                         </div>
                       )}
 
-                      {/* Info button - only shows on mobile/touch devices */}
+                      {/* Info button for mobile - inspired by Ask Italian */}
                       <HoverCard openDelay={0} closeDelay={0}>
                         <HoverCardTrigger asChild>
                           <button className="absolute bottom-4 right-4 bg-frsh-cream rounded-full p-2 shadow-lg md:hidden hover:bg-frsh-yellow transition-colors group">
@@ -254,12 +257,12 @@ const Slideshow = () => {
               ))}
             </CarouselContent>
             
-            {/* Enhanced control buttons */}
+            {/* Enhanced control buttons - inspired by Zambrero */}
             <CarouselPrevious className="bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform -left-4 md:-left-6 hover:shadow-[0_0_15px_rgba(255,196,0,0.4)]"/>
             <CarouselNext className="bg-frsh-yellow text-frsh-gray-dark hover:bg-frsh-yellow-light transform hover:scale-110 transition-transform -right-4 md:-right-6 hover:shadow-[0_0_15px_rgba(255,196,0,0.4)]"/>
           </Carousel>
           
-          {/* Interactive dot indicators */}
+          {/* Interactive dot indicators - inspired by Blank Street */}
           <div className="mt-8 flex justify-center gap-2">
             {slides.map((_, index) => (
               <button
