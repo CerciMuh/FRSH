@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useEffect, useState, useCallback } from 'react';
@@ -17,86 +16,68 @@ const Navbar = () => {
     { id: 'vision', label: 'Vision' }
   ];
 
-  // Handle scroll position for navbar appearance
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
-      const sections = navigationItems.map(item => item.id);
       const scrollPosition = window.scrollY + 100;
-
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
+      navigationItems.forEach((item) => {
+        const element = document.getElementById(item.id);
         if (element) {
-          const offsetTop = element.offsetTop;
+          const top = element.offsetTop;
           const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(item.id);
           }
         }
       });
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [navigationItems]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // Smooth scroll to section
   const scrollToSection = useCallback((sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
   }, []);
 
   return (
-    <nav 
+    <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-frsh-cream/95 backdrop-blur-sm shadow-md py-3' 
-          : 'bg-transparent py-5'
+        isScrolled
+          ? 'bg-frsh-cream/95 backdrop-blur-sm shadow-md py-2'
+          : 'bg-transparent py-3'
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <a 
-          href="#" 
-          className="flex items-center gap-2 group"
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <a
+          href="#"
+          className="group"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <div className="w-10 h-10 rounded-full bg-frsh-green flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-            <img 
-              src="public/lovable-uploads/3304c707-00cf-444b-8964-f3c62edfc418.png" 
-              alt="FRSH Logo" 
-              className="w-6 h-6 object-contain"
-            />
-          </div>
-          <span className="text-frsh-green font-playfair text-xl font-semibold group-hover:text-frsh-green-light transition-colors">FRSH</span>
+          <img
+            src="/lovable-uploads/logo-bilingual.png"
+            alt="FRSH Logo"
+            className="w-16 sm:w-20 md:w-24 h-auto object-contain"
+          />
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navigationItems.map((item) => (
-            <a 
+            <a
               key={item.id}
               href={`#${item.id}`}
-              className={`relative py-2 group ${
-                activeSection === item.id 
-                  ? 'text-frsh-green-light font-medium' 
+              className={`relative py-2 text-sm lg:text-base group ${
+                activeSection === item.id
+                  ? 'text-frsh-green-light font-medium'
                   : 'text-frsh-green hover:text-frsh-green-light'
               } transition-colors`}
               onClick={(e) => {
@@ -107,28 +88,28 @@ const Navbar = () => {
               onMouseLeave={() => setHoverItem(null)}
             >
               {item.label}
-              <span 
+              <span
                 className={`absolute bottom-0 left-0 w-full h-0.5 bg-frsh-yellow transform origin-left transition-transform duration-300 ${
                   activeSection === item.id || hoverItem === item.id
-                    ? 'scale-x-100' 
+                    ? 'scale-x-100'
                     : 'scale-x-0'
                 }`}
               ></span>
             </a>
           ))}
-          
-          <Button 
-            className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden"
-          >
-            <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">Start My Plan</span>
+
+          <Button className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden text-sm lg:text-base">
+            <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">
+              Start My Plan
+            </span>
             <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <Button 
-          variant="ghost" 
-          className="md:hidden text-frsh-green hover:bg-frsh-green/10" 
+        <Button
+          variant="ghost"
+          className="md:hidden text-frsh-green hover:bg-frsh-green/10"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <Menu className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
@@ -136,20 +117,20 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div 
+      <div
         className={`md:hidden absolute w-full bg-frsh-cream shadow-lg transition-all duration-500 overflow-hidden ${
-          mobileMenuOpen 
-            ? 'max-h-[500px] opacity-100' 
-            : 'max-h-0 opacity-0'
+          mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="flex flex-col p-4 stagger-children">
+        <div className="flex flex-col p-4 gap-2">
           {navigationItems.map((item, index) => (
-            <a 
+            <a
               key={item.id}
               href={`#${item.id}`}
-              className={`py-3 px-4 hover:bg-frsh-cream-darker rounded-md flex items-center justify-between ${
-                activeSection === item.id ? 'text-frsh-green-light font-medium' : 'text-frsh-green'
+              className={`py-3 px-4 hover:bg-frsh-cream-darker rounded-md flex items-center justify-between text-sm ${
+                activeSection === item.id
+                  ? 'text-frsh-green-light font-medium'
+                  : 'text-frsh-green'
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -158,10 +139,14 @@ const Navbar = () => {
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               {item.label}
-              <ChevronDown className={`w-4 h-4 transition-transform ${activeSection === item.id ? 'rotate-180' : ''}`} />
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  activeSection === item.id ? 'rotate-180' : ''
+                }`}
+              />
             </a>
           ))}
-          <Button className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark">
+          <Button className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm">
             Start My Plan
           </Button>
         </div>
