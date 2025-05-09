@@ -21,28 +21,28 @@ const Slideshow = () => {
   const slides = [
     {
       id: 1,
-      image: "public/lovable-uploads/bilingual-logo-fresh.png",
+      image: "/lovable-uploads/bilingual-logo-fresh.png",
       alt: "bilingual logo of FRSH",
       caption: "The FRSH Brand - Bilingual Excellence",
       description: "Our bilingual logo represents our commitment to serving diverse communities with fresh, healthy meals."
     },
     {
       id: 2,
-      image: "public/lovable-uploads/frsh-picture-landing-page.png",
+      image: "/lovable-uploads/frsh-picture-landing-page.png",
       alt: "frsh-picture-landing-page.png",
       caption: "Fresh Ingredients, Thoughtful Preparation",
       description: "Every meal crafted with care and attention to detail, bringing restaurant quality to your doorstep."
     },
     {
       id: 3,
-      image: "public/lovable-uploads/f997509f-7b77-4263-b584-45f44cd3e093.png",
+      image: "/lovable-uploads/f997509f-7b77-4263-b584-45f44cd3e093.png",
       alt: "FRSH freshness with a twist delivery truck",
       caption: "Delivery You Can Count On",
       description: "Our fleet ensures your meals arrive fresh and on time, every time."
     },
     {
       id: 4,
-      image: "public/lovable-uploads/deeb5480-297e-4df9-9c0f-cd6b128a7494.png",
+      image: "/lovable-uploads/deeb5480-297e-4df9-9c0f-cd6b128a7494.png",
       alt: "FRSH mission and vision",
       caption: "Our Guiding Principles",
       description: "The vision and mission that drives everything we do at FRSH."

@@ -161,7 +161,7 @@ const Hero = () => {
           {/* Main image with hover effects inspired by Ask Italian */}
           <div className="relative z-10 perspective-1000 group">
             <img 
-              src="./public/lovable-uploads/Hero-frsh.png" 
+              src="/lovable-uploads/Hero-frsh.png" 
               alt="Fresh, healthy meals"
               className="w-full h-auto max-w-md rounded-lg shadow-2xl hover:shadow-[0_20px_80px_-20px_rgba(8,70,60,0.3)] transition-all duration-500 transform group-hover:scale-[1.02] group-hover:rotate-y-5"
             />

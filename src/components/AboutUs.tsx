@@ -17,7 +17,7 @@ const AboutUs = () => {
           <div className="relative">
             <div className="absolute w-full h-full bg-frsh-green/10 rounded-lg transform -rotate-3"></div>
             <img
-              src="public/lovable-uploads/d3f97128-32cd-49be-af59-31e31efc40c2.png"
+              src="/lovable-uploads/d3f97128-32cd-49be-af59-31e31efc40c2.png"
               alt="FRSH food and mood"
               className="relative z-10 rounded-lg shadow-lg w-full"
             />
