@@ -146,6 +146,30 @@ export default {
 					'50%': {
 						opacity: '1'
 					}
+				},
+				'bounce-soft': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
+				'rotate-slow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
+				},
+				'spin-slow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
@@ -155,7 +179,16 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'slide-in': 'slide-in 0.5s ease-out',
 				'pulse-soft': 'pulse-soft 3s infinite ease-in-out',
-				'fade-in': 'fade-in 0.5s ease-out'
+				'bounce-soft': 'bounce-soft 2s infinite ease-in-out',
+				'rotate-slow': 'rotate-slow 8s linear infinite',
+				'spin-slow': 'spin-slow 15s linear infinite'
+			},
+			transitionProperty: {
+				'height': 'height',
+				'spacing': 'margin, padding',
+				'width': 'width',
+				'border': 'border-width, border-color',
+				'radius': 'border-radius'
 			}
 		}
 	},
