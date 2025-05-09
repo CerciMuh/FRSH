@@ -49,7 +49,8 @@ const Vision = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div 
-            ref={missionRef.ref}
+ref={philosophyRef.ref as React.RefObject<HTMLDivElement>}
+
             className={`p-8 border border-frsh-cream/20 rounded-lg hover:bg-frsh-green-light transition-all duration-500 transform cursor-pointer relative overflow-hidden ${
               missionRef.isVisible 
                 ? 'opacity-100 translate-y-0 shadow-[0_10px_30px_-10px_rgba(245,236,204,0.1)]' 
@@ -103,7 +104,8 @@ const Vision = () => {
           </div>
 
           <div 
-            ref={visionRef.ref}
+ref={philosophyRef.ref as React.RefObject<HTMLDivElement>}
+
             className={`p-8 border border-frsh-cream/20 rounded-lg hover:bg-frsh-green-light transition-all duration-500 transform cursor-pointer relative overflow-hidden ${
               visionRef.isVisible 
                 ? 'opacity-100 translate-y-0 shadow-[0_10px_30px_-10px_rgba(245,236,204,0.1)]' 
@@ -159,7 +161,7 @@ const Vision = () => {
 
         <div 
           className="mt-16"
-          ref={philosophyRef.ref}
+          ref={philosophyRef.ref as React.RefObject<HTMLDivElement>}
         >
           <div 
             className={`text-center transition-all duration-700 transform ${
