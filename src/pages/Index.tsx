@@ -39,47 +39,25 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      {/* Inspired by Blank Street's smooth gradient backgrounds */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-frsh-cream via-frsh-cream-darker to-frsh-cream pointer-events-none"></div>
+    <div className="min-h-screen overflow-x-hidden bg-white">
+      {/* Clean, subtle background inspired by Blank Street */}
+      <div className="fixed inset-0 -z-10 bg-white pointer-events-none"></div>
       
       <Navbar />
       <Hero />
-
-      {/* Section transitions and animated dividers inspired by Jahez */}
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-frsh-cream to-transparent -mt-24 z-10 pointer-events-none"></div>
-        <AboutUs />
-      </div>
-
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-frsh-cream to-frsh-green -mt-24 z-10 pointer-events-none transform-gpu"></div>
-        <HowItWorks />
-      </div>
-      
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-frsh-green to-frsh-cream -mt-24 z-10 pointer-events-none"></div>
-        <Features />
-      </div>
-      
+      <AboutUs />
+      <HowItWorks />
+      <Features />
       <Slideshow />
-      
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-frsh-cream to-frsh-green -mt-24 z-10 pointer-events-none"></div>
-        <Vision />
-      </div>
-      
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-frsh-green to-frsh-cream -mt-24 z-10 pointer-events-none"></div>
-        <Footer />
-      </div>
+      <Vision />
+      <Footer />
       
       {/* Progress indicator inspired by Leon and Ask Italian */}
-      <div className="fixed right-4 bottom-4 md:bottom-8 md:right-8 bg-frsh-cream/80 backdrop-blur-sm rounded-full shadow-lg p-2 z-40 hidden md:block">
+      <div className="fixed right-4 bottom-4 md:bottom-8 md:right-8 bg-white/80 backdrop-blur-sm rounded-full shadow-md p-2 z-40 hidden md:block">
         <div className="w-1 bg-frsh-green/20 rounded-full h-24 relative">
           <div 
             id="scroll-progress" 
-            className="absolute top-0 left-0 bg-frsh-yellow w-1 rounded-full transition-all duration-300"
+            className="absolute top-0 left-0 bg-frsh-green w-1 rounded-full transition-all duration-300"
             style={{ height: '0%' }}
           ></div>
         </div>
@@ -89,11 +67,11 @@ const Index = () => {
       <div className="fixed right-4 bottom-4 z-40">
         <button 
           id="scroll-top"
-          className="w-10 h-10 bg-frsh-yellow rounded-full flex items-center justify-center shadow-lg opacity-0 transform translate-y-4 transition-all duration-300 hover:bg-frsh-yellow-light"
+          className="w-10 h-10 bg-frsh-cream rounded-full flex items-center justify-center shadow-md opacity-0 transform translate-y-4 transition-all duration-300 hover:bg-frsh-yellow"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Scroll to top"
         >
-          <svg className="w-5 h-5 text-frsh-gray-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-5 h-5 text-frsh-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
           </svg>
         </button>
