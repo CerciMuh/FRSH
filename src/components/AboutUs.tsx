@@ -3,7 +3,7 @@ import { Utensils, MapPin, Home } from "lucide-react";
 
 const AboutUs = () => {
   return (
-    <section id="about" className="section-padding bg-frsh-cream">
+    <section id="about" className="section-padding bg-frsh-cream scroll-mt-24">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="section-title">About FRSH</h2>

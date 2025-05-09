@@ -188,11 +188,9 @@ const Hero = () => {
       </div>
       
       {/* Inspired by Zambrero's scroll indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center">
-        <a 
-          href="#about" 
-          className="group flex items-center flex-col"
-        >
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center z-30">
+  <a href="#about" className="group flex items-center flex-col cursor-pointer z-40">
+
           <p className="text-frsh-green mb-2 opacity-0 group-hover:opacity-100 transform -translate-y-2 group-hover:translate-y-0 transition-all">Discover More</p>
           <div className="w-10 h-10 rounded-full border-2 border-frsh-green flex items-center justify-center group-hover:bg-frsh-green transition-colors duration-300">
             <ChevronDown className="w-5 h-5 text-frsh-green group-hover:text-frsh-cream transition-colors duration-300 animate-bounce" />

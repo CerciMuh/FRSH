@@ -1,6 +1,6 @@
 
 import { Clock, Hand, Heart, Leaf, Star, Sparkles } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const Vision = () => {
@@ -13,7 +13,7 @@ const Vision = () => {
   const philosophyRef = useRef<HTMLDivElement>(null);
 
   // Observer setup for scroll animations
-  useState(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
