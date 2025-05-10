@@ -77,7 +77,7 @@ const Footer = () => {
           <img
             src="/lovable-uploads/apple-store-badge.png"
             alt="Download on the App Store"
-            className="h-8"
+            className="h-8 rounded-md"
           />
         </a>
       </div>
