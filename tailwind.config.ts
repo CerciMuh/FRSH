@@ -84,8 +84,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				'playfair': ['"Playfair Display"', 'serif'],
-				'inter': ['Inter', 'sans-serif']
+				'calvino': ['"Calvino"', 'serif'],
+				'labil': ['"Labil Grotesk"', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
