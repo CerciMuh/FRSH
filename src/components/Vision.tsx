@@ -1,4 +1,3 @@
-
 import { Clock, Hand, Heart, Leaf, Star, Sparkles } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -72,42 +71,6 @@ const Vision = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div 
-            ref={missionRef}
-            className="p-6 rounded-lg hover:bg-frsh-cream/10 transition-all duration-500 transform cursor-pointer relative overflow-hidden fade-in-on-scroll"
-            onClick={() => togglePanel('mission')}
-            onMouseEnter={() => setHovered('mission')}
-            onMouseLeave={() => setHovered(null)}
-          >
-            <div className="relative z-10">
-              <div className="flex items-center justify-center mb-5">
-                <div className="w-14 h-14 bg-frsh-green-light/10 rounded-full flex items-center justify-center">
-                  <Hand className="w-6 h-6 text-frsh-green transition-transform duration-300" />
-                </div>
-              </div>
-              
-              <h2 className="text-2xl font-playfair font-semibold mb-4 text-center">The FRSH Mission</h2>
-              
-              <Collapsible open={openPanel === 'mission'}>
-                <CollapsibleTrigger className="w-full">
-                  <p className="text-frsh-gray italic text-center">
-                    "We are committed to transforming the way people eat..."
-                    <span className="block text-frsh-green-light mt-2 text-sm">
-                      {openPanel === 'mission' ? 'Show less' : 'Read more'}
-                    </span>
-                  </p>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4 bg-frsh-cream/20 p-4 rounded-lg animate-fade-in">
-                  <p className="text-frsh-gray italic leading-relaxed">
-                    "We are committed to transforming the way people eat by providing high-quality, 
-                    balanced, and flavorful meals through a seamless, subscription-based cloud kitchen, 
-                    by prioritizing fresh ingredients, smart nutrition, and convenience."
-                  </p>
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
-          </div>
-
-          <div 
             ref={visionRef}
             className="p-6 rounded-lg hover:bg-frsh-cream/10 transition-all duration-500 transform cursor-pointer relative overflow-hidden fade-in-on-scroll"
             style={{ transitionDelay: '0.2s' }}
@@ -137,6 +100,42 @@ const Vision = () => {
                   <p className="text-frsh-gray italic leading-relaxed">
                     "To become the go-to healthy kitchen, making fresh, nutritious, and delicious
                     meals easily accessible for everyone striving for a better lifestyle."
+                  </p>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+          </div>
+
+          <div 
+            ref={missionRef}
+            className="p-6 rounded-lg hover:bg-frsh-cream/10 transition-all duration-500 transform cursor-pointer relative overflow-hidden fade-in-on-scroll"
+            onClick={() => togglePanel('mission')}
+            onMouseEnter={() => setHovered('mission')}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-5">
+                <div className="w-14 h-14 bg-frsh-green-light/10 rounded-full flex items-center justify-center">
+                  <Hand className="w-6 h-6 text-frsh-green transition-transform duration-300" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl font-playfair font-semibold mb-4 text-center">The FRSH Mission</h2>
+              
+              <Collapsible open={openPanel === 'mission'}>
+                <CollapsibleTrigger className="w-full">
+                  <p className="text-frsh-gray italic text-center">
+                    "We are committed to transforming the way people eat..."
+                    <span className="block text-frsh-green-light mt-2 text-sm">
+                      {openPanel === 'mission' ? 'Show less' : 'Read more'}
+                    </span>
+                  </p>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-4 bg-frsh-cream/20 p-4 rounded-lg animate-fade-in">
+                  <p className="text-frsh-gray italic leading-relaxed">
+                    "We are committed to transforming the way people eat by providing high-quality, 
+                    balanced, and flavorful meals through a seamless, subscription-based cloud kitchen, 
+                    by prioritizing fresh ingredients, smart nutrition, and convenience."
                   </p>
                 </CollapsibleContent>
               </Collapsible>
