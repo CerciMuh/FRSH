@@ -1,95 +1,65 @@
+import { Instagram } from 'lucide-react';
 
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+// Custom TikTok icon
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 256 256"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M173.2 32.1c9.8 8.1 21.3 14.3 33.9 17.6v28.7c-14.8-1.5-28.8-6.4-41.3-14.1v82.2c0 44.4-31.5 92.1-90.6 92.1-24 0-46.6-9.6-63.5-26.5C5.2 193.3-1.2 170.4.1 148.2 2.7 101 45.6 64.1 93.6 68.8v31.2c-23.3-2.3-45 14.6-47.4 38-2.5 23.7 15.3 44.8 39 47.3 1.6.2 3.3.3 4.9.3 20.5 0 38-16.6 38-37.3V0h44.9c.1 10.9 3.7 21.4 10.1 29.7z" />
+  </svg>
+);
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-frsh-green text-frsh-cream">
-      <div className="container mx-auto pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 px-6">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-frsh-cream flex items-center justify-center">
-                <img 
-                  src="public/lovable-uploads/3304c707-00cf-444b-8964-f3c62edfc418.png" 
-                  alt="FRSH Logo" 
-                  className="w-6 h-6 object-contain"
-                />
-              </div>
-              <span className="text-frsh-cream font-playfair text-2xl font-semibold">FRSH</span>
-            </div>
-            <p className="mb-6 text-frsh-cream/80">
-              Delivering fresh, nutritious, and delicious meals through our
-              subscription-based cloud kitchen service.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
+      <div className="flex flex-col items-center text-center py-6 px-4 space-y-3">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          <img
+            src="/lovable-uploads/logo-bilingual-footer.png"
+            alt="FRSH Logo"
+            className="w-24 h-auto object-contain"
+          />
+        </a>
 
-          <div>
-            <h4 className="text-lg font-medium mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><a href="#about" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">About Us</a></li>
-              <li><a href="#how-it-works" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">How It Works</a></li>
-              <li><a href="#features" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Why Choose Us</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-6">Company</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Refund Policy</a></li>
-              <li><a href="#" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">Delivery Information</a></li>
-              <li><a href="#" className="text-frsh-cream/80 hover:text-frsh-cream transition-colors">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-6">Subscribe to Our Newsletter</h4>
-            <p className="mb-4 text-frsh-cream/80">Stay updated with our newest meals and exclusive offers.</p>
-            <form className="flex mb-4">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="bg-frsh-cream/10 px-4 py-2 rounded-l-lg focus:outline-none focus:bg-frsh-cream/20 flex-grow"
-              />
-              <button type="submit" className="bg-frsh-yellow text-frsh-gray-dark px-4 py-2 rounded-r-lg font-medium hover:bg-frsh-yellow-light transition-colors">
-                Subscribe
-              </button>
-            </form>
-            <p className="text-xs text-frsh-cream/60">
-              By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
-            </p>
-          </div>
+        <div className="flex space-x-3">
+          <a
+            href="https://instagram.com/frsh_ksa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@frsh_ksa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
+          >
+            <TikTokIcon className="w-4 h-4" />
+          </a>
         </div>
 
-        <div className="border-t border-frsh-cream/20 pt-8 mt-8">
-          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-            <p className="text-frsh-cream/60 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} FRSH. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-frsh-cream/60 text-sm hover:text-frsh-cream">Privacy Policy</a>
-              <a href="#" className="text-frsh-cream/60 text-sm hover:text-frsh-cream">Terms of Service</a>
-              <a href="#" className="text-frsh-cream/60 text-sm hover:text-frsh-cream">Accessibility</a>
-            </div>
-          </div>
-        </div>
+        <a
+          href="https://apps.apple.com/app/id6742881525"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/lovable-uploads/apple-store-badge.png"
+            alt="Download on the App Store"
+            className="h-8"
+          />
+        </a>
       </div>
     </footer>
   );

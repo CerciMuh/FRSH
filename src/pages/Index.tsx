@@ -6,6 +6,7 @@ import AboutUs from '@/components/AboutUs';
 import HowItWorks from '@/components/HowItWorks';
 import Features from '@/components/Features';
 import Slideshow from '@/components/Slideshow';
+import Lifestyle from '@/components/Lifestyle';
 import Vision from '@/components/Vision';
 import Footer from '@/components/Footer';
 
@@ -46,22 +47,12 @@ const Index = () => {
       <Navbar />
       <Hero />
       <AboutUs />
-      <HowItWorks />
+      <Lifestyle />
       <Features />
-      <Slideshow />
       <Vision />
       <Footer />
       
-      {/* Progress indicator inspired by Leon and Ask Italian */}
-      <div className="fixed right-4 bottom-4 md:bottom-8 md:right-8 bg-white/80 backdrop-blur-sm rounded-full shadow-md p-2 z-40 hidden md:block">
-        <div className="w-1 bg-frsh-green/20 rounded-full h-24 relative">
-          <div 
-            id="scroll-progress" 
-            className="absolute top-0 left-0 bg-frsh-green w-1 rounded-full transition-all duration-300"
-            style={{ height: '0%' }}
-          ></div>
-        </div>
-      </div>
+
       
       {/* Scroll to top button inspired by Zambrero */}
       <div className="fixed right-4 bottom-4 z-40">

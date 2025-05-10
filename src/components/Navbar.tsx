@@ -10,9 +10,8 @@ const Navbar = () => {
 
   const navigationItems = [
     { id: 'about', label: 'About' },
-    { id: 'how-it-works', label: 'How It Works' },
     { id: 'features', label: 'Features' },
-    { id: 'gallery', label: 'Gallery' },
+    { id: 'lifestyle', label: 'Lifestyle' },
     { id: 'vision', label: 'Vision' }
   ];
 
@@ -44,6 +43,14 @@ const Navbar = () => {
     }
     setMobileMenuOpen(false);
   }, []);
+
+  const scrollToFooter = () => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <nav
@@ -98,9 +105,12 @@ const Navbar = () => {
             </a>
           ))}
 
-          <Button className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden text-sm lg:text-base">
+          <Button
+            onClick={scrollToFooter}
+            className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden text-sm lg:text-base"
+          >
             <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">
-              Start My Plan
+              Reach Us
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </Button>
@@ -146,8 +156,11 @@ const Navbar = () => {
               />
             </a>
           ))}
-          <Button className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm">
-            Start My Plan
+          <Button
+            onClick={scrollToFooter}
+            className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm"
+          >
+            Reach Us
           </Button>
         </div>
       </div>
