@@ -17,8 +17,8 @@ const Lifestyle = () => {
     <section id="lifestyle" className="section-padding bg-frsh-green text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-calvino text-white mb-4">Lifestyle</h2>
-          <p className="text-lg sm:text-xl font-labil text-white/80 leading-relaxed max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">Lifestyle</h2>
+          <p className="text-lg sm:text-xl font-labil text-frsh-cream/90 leading-relaxed max-w-2xl mx-auto">
             A visual taste of what we prepare with love and deliver fresh to your doorstep.
           </p>
         </div>

@@ -28,24 +28,45 @@ const AboutUs = () => {
     <section id="about" className="section-padding bg-frsh-cream scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-0">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Right Column - Features FIRST on mobile */}
-          <div className="order-1 md:order-2">
-            <h3 className="text-xl font-semibold text-frsh-green mb-4 md:hidden">Why Choose FRSH?</h3>
-            <h2 className="section-title mb-4 hidden md:block">Why Choose FRSH?</h2>
-            <p className="section-subtitle mb-8">
-              FRSH saves you time, keeps you healthy, and makes meals something to look forward to.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow text-center"
-                >
-                  {feature.icon}
-                  <h3 className="text-xl font-semibold mb-2 text-frsh-green">{feature.title}</h3>
-                  <p className="text-frsh-gray text-sm">{feature.description}</p>
-                </div>
-              ))}
+          {/* Right Column - Feature Section with FRSH Green Background */}
+          <div className="order-1 md:order-2 bg-frsh-green rounded-xl shadow-md p-6 flex flex-col justify-between text-frsh-cream">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">Why Choose FRSH?</h2>
+              <p className="text-lg sm:text-xl font-labil text-frsh-cream/90 mb-6">
+                FRSH saves you time, keeps you healthy, and makes meals something to look forward to.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition text-center"
+                  >
+                    {feature.icon}
+                    <h3 className="text-xl font-semibold mb-2 text-frsh-cream">{feature.title}</h3>
+                    <p className="text-sm text-frsh-cream/90">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 mt-8">
+              <a
+                href="https://apps.apple.com/app/id6742881525"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 text-center bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition"
+              >
+                Subscribe to FRSH
+              </a>
+              <a
+                href="https://wa.me/966500961496"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 text-center bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition"
+              >
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
 

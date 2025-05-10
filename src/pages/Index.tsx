@@ -7,6 +7,7 @@ import Slideshow from '@/components/Slideshow';
 import Lifestyle from '@/components/Lifestyle';
 import Vision from '@/components/Vision';
 import Footer from '@/components/Footer';
+import { Analytics } from "@vercel/analytics/next"
 
 const Index = () => {
   // Add scroll observer to handle classes for scroll-triggered animations
@@ -43,11 +44,13 @@ const Index = () => {
       <div className="fixed inset-0 -z-10 bg-white pointer-events-none"></div>
       
       <Navbar />
-      <Hero />
+      <Hero /> 
       <AboutUs />
       <Lifestyle />
       <Vision />
       <Footer />
+      
+
       
       {/* Scroll to top button inspired by Zambrero */}
       <div className="fixed right-4 bottom-4 z-40">
