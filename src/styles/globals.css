@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Labil Grotesk';
+  src: url('/fonts/LabilGroteskTrial-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calvino';
+  src: url('/fonts/Calvino-Italic-Variable-trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root {
+  --font-primary: 'Labil Grotesk', sans-serif;
+  --font-secondary: 'Calvino', serif;
+}
+
+* {
+  font-family: var(--font-primary);
+}
+
+/* Section Titles */
+.section-title {
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+h6 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Body Text */
+p, span, div {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Special Classes */
+.font-playfair {
+  font-family: var(--font-secondary);
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  p, span, div {
+    font-size: 1rem;
+  }
+} 
