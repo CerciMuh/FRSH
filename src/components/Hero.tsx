@@ -63,16 +63,16 @@ const Hero = () => {
   }, [carouselApi]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-frsh-green">
+    <section className="relative w-full h-[92vh] md:h-screen overflow-hidden">
       {/* Carousel Background */}
       <Carousel setApi={setCarouselApi} className="absolute inset-0 z-0">
         <CarouselContent>
           {heroSlides.map((slide) => (
-            <CarouselItem key={slide.id} className="basis-full h-screen">
+            <CarouselItem key={slide.id} className="basis-full h-[92vh] md:h-screen">
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover scale-110 md:scale-100"
               />
             </CarouselItem>
           ))}
@@ -84,26 +84,25 @@ const Hero = () => {
 
       {/* Text Overlay */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 transition-all duration-700 ease-in-out">
-        <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-4 leading-tight drop-shadow-xl animate-fade-in-up">
+        <h1 className="text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,6vw,4rem)] font-bold mb-1 md:mb-4 leading-tight drop-shadow-xl animate-fade-in-up">
           {heroSlides[activeIndex].title}
           <br />
-          <span className="text-yellow-300 inline-flex items-center gap-2">
+          <span className="text-yellow-300 inline-flex items-center gap-1 md:gap-2">
             {heroSlides[activeIndex].subtitle}
-            <Sparkles className="w-6 h-6 animate-pulse" />
+            <Sparkles className="w-4 h-4 md:w-6 md:h-6 animate-pulse" />
           </span>
         </h1>
 
-        <p className="mt-4 text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-xl drop-shadow animate-fade-in-up">
+        <p className="mt-1 md:mt-4 text-[clamp(0.75rem,1.25vw,1.25rem)] text-white/90 max-w-xl drop-shadow animate-fade-in-up">
           Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.
         </p>
 
-        {/* Buttons */}
-        <div className="mt-6 flex flex-col sm:flex-row gap-4 animate-fade-in-up">
+        <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6">
           <a
             href="https://apps.apple.com/app/id6742881525"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition"
+            className="px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base"
           >
             Try Us Out
           </a>
@@ -111,7 +110,7 @@ const Hero = () => {
             href="https://wa.me/966500961496"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-gray-100 transition"
+            className="px-4 md:px-6 py-2 md:py-3 bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition animate-fade-in-up text-sm md:text-base"
           >
             WhatsApp Us
           </a>
@@ -119,12 +118,12 @@ const Hero = () => {
       </div>
 
       {/* Slide Dots */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+      <div className="absolute bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 flex gap-1.5 md:gap-2 z-30">
         {heroSlides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => carouselApi?.scrollTo(idx)}
-            className={`w-3 h-3 rounded-full transition ${
+            className={`w-1.5 h-1.5 md:w-3 md:h-3 rounded-full transition ${
               idx === activeIndex ? "bg-yellow-400 scale-125" : "bg-white/50"
             }`}
           />
@@ -135,13 +134,17 @@ const Hero = () => {
       <button
         onClick={() => {
           const el = document.getElementById("about");
-          el?.scrollIntoView({ behavior: "smooth" });
+          if (el) {
+            const yOffset = -20; // Add a small offset
+            const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
         }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30"
+        className="absolute bottom-12 md:bottom-6 left-1/2 -translate-x-1/2 z-30"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 text-white animate-bounce"
+          className="h-6 w-6 md:h-8 md:w-8 text-white animate-bounce"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
