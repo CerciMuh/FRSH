@@ -69,7 +69,7 @@ const Navbar = () => {
           }}
         >
           <img
-            src="/lovable-uploads/logo-bilingual.png"
+            src="/lovable-uploads/logo-arabic-green.png"
             alt="FRSH Logo"
             className="w-16 sm:w-20 md:w-24 h-auto object-contain"
           />

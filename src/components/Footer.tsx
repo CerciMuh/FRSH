@@ -36,7 +36,7 @@ const Footer = () => {
           }}
         >
           <img
-            src="/lovable-uploads/logo-bilingual-footer.png"
+            src="/lovable-uploads/logo-arabic-cream.png"
             alt="FRSH Logo"
             className="w-24 h-auto object-contain"
           />
