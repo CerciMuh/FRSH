@@ -2,10 +2,17 @@
 
 @font-face {
   font-family: 'Calvino';
-  src: url('/fonts/Calvino-Italic-Variable-trial.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 100 900; /* if you have a true WOFF2 variable font */
   font-display: swap;
+  src:
+  url('/fonts/Calvino-Italic-Variable-trial.ttf')     format('truetype'),
+    /* 1) CFF2 variable font (iOS16+, desktop, Android) */
+    url('/fonts/calvino-italic-variable-trial-webfont.woff2') format('woff2'),
+    /* 2) WOFF fallback for older engines */
+    url('/fonts/calvino-italic-variable-trial-webfont.woff')  format('woff');
+    /* 3) TTF fallback only if you really need it */
+
 }
 
 @font-face {
