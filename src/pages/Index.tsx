@@ -1,10 +1,8 @@
-
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutUs from '@/components/AboutUs';
 import HowItWorks from '@/components/HowItWorks';
-import Features from '@/components/Features';
 import Slideshow from '@/components/Slideshow';
 import Lifestyle from '@/components/Lifestyle';
 import Vision from '@/components/Vision';
@@ -47,12 +45,9 @@ const Index = () => {
       <Navbar />
       <Hero />
       <AboutUs />
-      <Features />
       <Lifestyle />
       <Vision />
       <Footer />
-      
-
       
       {/* Scroll to top button inspired by Zambrero */}
       <div className="fixed right-4 bottom-4 z-40">

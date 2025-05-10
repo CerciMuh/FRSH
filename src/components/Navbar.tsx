@@ -10,7 +10,6 @@ const Navbar = () => {
 
   const navigationItems = [
     { id: 'about', label: 'About' },
-    { id: 'features', label: 'Features' },
     { id: 'lifestyle', label: 'Lifestyle' },
     { id: 'vision', label: 'Vision' }
   ];
