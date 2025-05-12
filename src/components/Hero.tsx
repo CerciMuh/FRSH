@@ -100,12 +100,12 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6">
           <a
-            href="https://app.techrar.com/FRSH"
+            href="https://apps.apple.com/app/id6742881525"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base"
           >
-            Subscribe Now
+            Download The App
           </a>
           <a
             href="https://wa.me/966500961496"
