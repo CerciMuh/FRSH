@@ -1,47 +1,61 @@
+
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useEffect, useState, useCallback } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [hoverItem, setHoverItem] = useState<string | null>(null);
+  const location = useLocation();
 
   const navigationItems = [
-    { id: 'about', label: 'About' },
-    { id: 'lifestyle', label: 'Lifestyle' },
-    { id: 'vision', label: 'Vision' }
+    { id: 'about', label: 'About', path: '/#about' },
+    { id: 'lifestyle', label: 'Lifestyle', path: '/#lifestyle' },
+    { id: 'vision', label: 'Vision', path: '/#vision' },
+    { id: 'faq', label: 'FAQ', path: '/faq' },
+    { id: 'legal', label: 'Legal', path: '/legal' }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const scrollPosition = window.scrollY + 100;
-      navigationItems.forEach((item) => {
-        const element = document.getElementById(item.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(item.id);
+      if (location.pathname === '/') {
+        const scrollPosition = window.scrollY + 100;
+        navigationItems.forEach((item) => {
+          if (item.id === 'faq' || item.id === 'legal') return; // Skip external pages
+          
+          const element = document.getElementById(item.id);
+          if (element) {
+            const top = element.offsetTop;
+            const height = element.offsetHeight;
+            if (scrollPosition >= top && scrollPosition < top + height) {
+              setActiveSection(item.id);
+            }
           }
-        }
-      });
+        });
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToSection = useCallback((sectionId: string) => {
+    if (location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToFooter = () => {
     const footer = document.querySelector('footer');
@@ -49,6 +63,29 @@ const Navbar = () => {
       footer.scrollIntoView({ behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
+  };
+
+  const isActive = (item: { id: string, path: string }) => {
+    if (location.pathname === '/') {
+      return activeSection === item.id;
+    }
+    // For external pages like FAQ and Legal
+    return location.pathname === item.path;
+  };
+
+  const handleNavItemClick = (e: React.MouseEvent, item: { id: string, path: string }) => {
+    e.preventDefault();
+    
+    // Handle external pages
+    if (item.path.startsWith('/')) {
+      if (location.pathname !== item.path) {
+        window.location.href = item.path;
+      }
+    } else {
+      // Handle scroll to section
+      const sectionId = item.id;
+      scrollToSection(sectionId);
+    }
   };
 
   return (
@@ -60,43 +97,36 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a
-          href="#"
+        <Link
+          to="/"
           className="group"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
         >
           <img
             src="/lovable-uploads/logo-arabic-green.png"
             alt="FRSH Logo"
             className="w-16 sm:w-20 md:w-24 h-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navigationItems.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={item.path}
               className={`relative py-2 text-sm lg:text-base group ${
-                activeSection === item.id
+                isActive(item)
                   ? 'text-frsh-green-light font-medium'
                   : 'text-frsh-green hover:text-frsh-green-light'
               } transition-colors`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item.id);
-              }}
+              onClick={(e) => handleNavItemClick(e, item)}
               onMouseEnter={() => setHoverItem(item.id)}
               onMouseLeave={() => setHoverItem(null)}
             >
               {item.label}
               <span
                 className={`absolute bottom-0 left-0 w-full h-0.5 bg-frsh-yellow transform origin-left transition-transform duration-300 ${
-                  activeSection === item.id || hoverItem === item.id
+                  isActive(item) || hoverItem === item.id
                     ? 'scale-x-100'
                     : 'scale-x-0'
                 }`}
@@ -135,22 +165,19 @@ const Navbar = () => {
           {navigationItems.map((item, index) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={item.path}
               className={`py-3 px-4 hover:bg-frsh-cream-darker rounded-md flex items-center justify-between text-sm ${
-                activeSection === item.id
+                isActive(item)
                   ? 'text-frsh-green-light font-medium'
                   : 'text-frsh-green'
               }`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(item.id);
-              }}
+              onClick={(e) => handleNavItemClick(e, item)}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               {item.label}
               <ChevronDown
                 className={`w-4 h-4 transition-transform ${
-                  activeSection === item.id ? 'rotate-180' : ''
+                  isActive(item) ? 'rotate-180' : ''
                 }`}
               />
             </a>

@@ -1,4 +1,6 @@
+
 import { Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Custom TikTok icon
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -27,59 +29,115 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const Footer = () => {
   return (
     <footer className="bg-frsh-green text-frsh-cream">
-      <div className="flex flex-col items-center text-center py-6 px-4 space-y-3">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >
-          <img
-            src="/lovable-uploads/logo-arabic-cream.png"
-            alt="FRSH Logo"
-            className="w-24 h-auto object-contain"
-          />
-        </a>
+      <div className="container mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Logo and Social Links */}
+          <div className="flex flex-col items-center md:items-start">
+            <Link to="/">
+              <img
+                src="/lovable-uploads/logo-arabic-cream.png"
+                alt="FRSH Logo"
+                className="w-24 h-auto object-contain mb-4"
+              />
+            </Link>
+            <div className="flex space-x-3 mb-4">
+              <a
+                href="https://instagram.com/frsh_ksa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@frsh_ksa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
+              >
+                <TikTokIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://wa.me/966500961496"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
+              >
+                <WhatsAppIcon className="w-4 h-4" />
+              </a>
+            </div>
+            <a
+              href="https://apps.apple.com/app/id6742881525"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <img
+                src="/lovable-uploads/apple-store-badge.png"
+                alt="Download on the App Store"
+                className="h-10 rounded-md"
+              />
+            </a>
+          </div>
 
-        <div className="flex space-x-3">
-          <a
-            href="https://instagram.com/frsh_ksa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
-          >
-            <Instagram className="w-4 h-4" />
-          </a>
-          <a
-            href="https://www.tiktok.com/@frsh_ksa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
-          >
-            <TikTokIcon className="w-4 h-4" />
-          </a>
-          <a
-            href="https://wa.me/966500961496"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-frsh-cream/10 p-2 rounded-full hover:bg-frsh-cream/20 transition-colors"
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-          </a>
+          {/* Quick Links */}
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-calvino font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2 font-labil">
+              <li>
+                <Link to="/#about" className="hover:text-frsh-cream/80 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/#lifestyle" className="hover:text-frsh-cream/80 transition-colors">
+                  Lifestyle
+                </Link>
+              </li>
+              <li>
+                <Link to="/#vision" className="hover:text-frsh-cream/80 transition-colors">
+                  Vision
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
+                  FAQs
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-calvino font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2 font-labil">
+              <li>
+                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
+                  Company Registration
+                </Link>
+              </li>
+              <li>
+                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
+                  VAT Information
+                </Link>
+              </li>
+              <li>
+                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <a
-          href="https://apps.apple.com/app/id6742881525"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="/lovable-uploads/apple-store-badge.png"
-            alt="Download on the App Store"
-            className="h-8 rounded-md"
-          />
-        </a>
+        <div className="border-t border-frsh-cream/20 mt-8 pt-6 text-center font-labil text-sm text-frsh-cream/80">
+          <p>© {new Date().getFullYear()} FRSH. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
