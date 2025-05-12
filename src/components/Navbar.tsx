@@ -1,13 +1,17 @@
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronDown } from 'lucide-react';
-import { useEffect, useState, useCallback } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useCallback
+} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [hoverItem, setHoverItem] = useState<string | null>(null);
   const [pendingSection, setPendingSection] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,47 +25,41 @@ const Navbar = () => {
     { id: 'legal', label: 'Legal', path: '/legal', type: 'route' }
   ];
 
-  // Handle scroll and active section detection on landing page
+  // 1) Track scroll to set sticky navbar and update activeSection on landing
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
       if (location.pathname === '/') {
-        const scrollPosition = window.scrollY + 100;
-        navigationItems.forEach((item) => {
+        const pos = window.scrollY + 100;
+        navigationItems.forEach(item => {
           if (item.type !== 'anchor') return;
           const el = document.getElementById(item.id);
-          if (el) {
-            const top = el.offsetTop;
-            const height = el.offsetHeight;
-            if (scrollPosition >= top && scrollPosition < top + height) {
-              setActiveSection(item.id);
-            }
+          if (el && pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) {
+            setActiveSection(item.id);
           }
         });
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, [location.pathname]);
 
-  // After navigating back to landing page for anchor, perform scroll
-  useEffect(() => {
+  // 2) When coming back to “/” with a pendingSection, scroll immediately (before paint)
+  useLayoutEffect(() => {
     if (location.pathname === '/' && pendingSection) {
-      const section = document.getElementById(pendingSection);
-      if (section) {
-        window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+      const el = document.getElementById(pendingSection);
+      if (el) {
+        window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
       }
       setPendingSection(null);
       setMobileMenuOpen(false);
     }
   }, [location.pathname, pendingSection]);
 
-  const scrollToSection = useCallback((sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+  const scrollToSection = useCallback((id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
   }, []);
@@ -73,10 +71,9 @@ const Navbar = () => {
   };
 
   const isActive = (item: typeof navigationItems[number]) => {
-    if (item.type === 'anchor') {
-      return location.pathname === '/' && activeSection === item.id;
-    }
-    return location.pathname === item.path;
+    return item.type === 'route'
+      ? location.pathname === item.path
+      : location.pathname === '/' && activeSection === item.id;
   };
 
   const handleNavItemClick = (
@@ -91,11 +88,16 @@ const Navbar = () => {
       } else {
         scrollToSection(item.id);
       }
-    } else if (item.type === 'route') {
-      // for route links, closing mobile menu suffices
+    } else {
+      // route link
       setMobileMenuOpen(false);
     }
   };
+
+  const baseClasses =
+    'relative py-2 px-3 text-sm lg:text-base rounded-md transition-all duration-300';
+  const anchorClasses =
+    'text-frsh-green hover:text-frsh-green-light hover:bg-white active:bg-white focus:bg-white';
 
   return (
     <nav
@@ -116,31 +118,30 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navigationItems.map((item) => {
-            const base = 'relative py-2 px-3 text-sm lg:text-base rounded-md transition-all duration-300';
-            const activeClass = isActive(item)
-              ? 'text-frsh-green-light font-medium bg-white'
-              : 'text-frsh-green hover:text-frsh-green-light hover:bg-white';
-
+          {navigationItems.map(item => {
             if (item.type === 'anchor') {
               return (
-                <a
+                <button
                   key={item.id}
-                  href="#"
-                  className={`${base} ${activeClass}`}
-                  onClick={(e) => handleNavItemClick(e, item)}
+                  type="button"
+                  className={`${baseClasses} ${anchorClasses}`}
+                  onClick={e => handleNavItemClick(e, item)}
                 >
                   {item.label}
-                </a>
+                </button>
               );
             }
+
+            const linkActive = isActive(item)
+              ? 'text-frsh-green-light font-medium bg-white'
+              : 'text-frsh-green hover:text-frsh-green-light hover:bg-white';
 
             return (
               <Link
                 key={item.id}
                 to={item.path!}
-                className={`${base} ${activeClass}`}
-                onClick={(e) => handleNavItemClick(e, item)}
+                className={`${baseClasses} ${linkActive}`}
+                onClick={e => handleNavItemClick(e, item)}
               >
                 {item.label}
               </Link>
@@ -154,7 +155,7 @@ const Navbar = () => {
             <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">
               Reach Us
             </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
         </div>
 
@@ -162,9 +163,13 @@ const Navbar = () => {
         <Button
           variant="ghost"
           className="md:hidden text-frsh-green hover:bg-frsh-green/10"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen(o => !o)}
         >
-          <Menu className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
+          <Menu
+            className={`transition-transform duration-300 ${
+              mobileMenuOpen ? 'rotate-90' : ''
+            }`}
+          />
         </Button>
       </div>
 
@@ -176,37 +181,39 @@ const Navbar = () => {
       >
         <div className="flex flex-col p-4 gap-2">
           {navigationItems.map((item, idx) => {
-            const mobileActive = isActive(item)
-              ? 'text-frsh-green-light font-medium bg-white'
-              : 'text-frsh-green';
-
             if (item.type === 'anchor') {
               return (
-                <a
+                <button
                   key={item.id}
-                  href="#"
-                  className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${mobileActive}`}
-                  onClick={(e) => handleNavItemClick(e, item)}
+                  type="button"
+                  className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${anchorClasses}`}
+                  onClick={e => handleNavItemClick(e, item)}
                   style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                   {item.label}
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${isActive(item) ? 'rotate-180' : ''}`} />
-                </a>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
               );
             }
+
+            const linkActive = isActive(item)
+              ? 'text-frsh-green-light font-medium bg-white'
+              : 'text-frsh-green';
 
             return (
               <Link
                 key={item.id}
                 to={item.path!}
-                className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${mobileActive}`}
+                className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${linkActive}`}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
                 {item.label}
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${isActive(item) ? 'rotate-180' : ''}`} />
+                  className={`w-4 h-4 transition-transform ${
+                    isActive(item) ? 'rotate-180' : ''
+                  }`}
+                />
               </Link>
             );
           })}

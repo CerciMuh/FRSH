@@ -120,6 +120,11 @@ const Footer = () => {
                 <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
                   VAT Information
                 </Link>
+                <li>
+                <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
+                  TCs
+                </Link>
+              </li>
               </li>
             </ul>
           </div>
