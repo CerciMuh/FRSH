@@ -1,7 +1,6 @@
 
 import { Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 // Custom TikTok icon
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -28,14 +27,12 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const Footer = () => {
-  const { t, language } = useLanguage();
-
   return (
     <footer className="bg-frsh-green text-frsh-cream">
       <div className="container mx-auto px-4 py-10">
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${language === 'ar' ? 'text-right' : ''}`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Social Links */}
-          <div className={`flex flex-col ${language === 'ar' ? 'items-end md:items-end' : 'items-center md:items-start'}`}>
+          <div className="flex flex-col items-center md:items-start">
             <Link to="/">
               <img
                 src="/lovable-uploads/logo-arabic-cream.png"
@@ -84,54 +81,54 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className={`text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'}`}>
-            <h3 className="text-lg font-calvino font-semibold mb-4">{t('quick_links')}</h3>
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-calvino font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 font-labil">
               <li>
                 <Link to="/#about" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('about_us')}
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link to="/#lifestyle" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('lifestyle')}
+                  Lifestyle
                 </Link>
               </li>
               <li>
                 <Link to="/#vision" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('vision')}
+                  Vision
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('faq')}
+                  FAQs
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Legal */}
-          <div className={`text-center ${language === 'ar' ? 'md:text-right' : 'md:text-left'}`}>
-            <h3 className="text-lg font-calvino font-semibold mb-4">{t('legal_info')}</h3>
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-calvino font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 font-labil">
               <li>
                 <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('company_registration')}
+                  Company Registration
                 </Link>
               </li>
               <li>
                 <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('vat_information')}
+                  VAT Information
                 </Link>
               </li>
               <li>
                 <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('terms_of_service')}
+                  Terms of Service
                 </Link>
               </li>
               <li>
                 <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  {t('privacy_policy')}
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
@@ -139,7 +136,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-frsh-cream/20 mt-8 pt-6 text-center font-labil text-sm text-frsh-cream/80">
-          <p>© {new Date().getFullYear()} FRSH. {t('rights_reserved')}</p>
+          <p>© {new Date().getFullYear()} FRSH. All rights reserved.</p>
         </div>
       </div>
     </footer>

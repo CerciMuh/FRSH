@@ -7,39 +7,37 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useLanguage } from "@/contexts/LanguageContext";
+
+const heroSlides = [
+  {
+    id: 1,
+    image: "/lovable-uploads/HL COVER 3.jpg",
+    title: "Eat Smart.",
+    subtitle: "Live Fresh.",
+  },
+  {
+    id: 2,
+    image: "/lovable-uploads/HL COVER 2.jpg",
+    title: "Healthy Food.",
+    subtitle: "Happy Mood.",
+  },
+  {
+    id: 3,
+    image: "/lovable-uploads/HL COVER 6.jpg",
+    title: "Fresh Meals.",
+    subtitle: "Fresher You.",
+  },
+  {
+    id: 4,
+    image: "/lovable-uploads/HL COVER 5.jpg",
+    title: "Fresh Meals.",
+    subtitle: "Fresher You.",
+  },
+];
 
 const Hero = () => {
-  const { t, language } = useLanguage();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const heroSlides = [
-    {
-      id: 1,
-      image: "/lovable-uploads/HL COVER 3.jpg",
-      title: t("eat_smart"),
-      subtitle: t("live_fresh"),
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/HL COVER 2.jpg",
-      title: t("healthy_food"),
-      subtitle: t("happy_mood"),
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/HL COVER 6.jpg",
-      title: t("fresh_meals"),
-      subtitle: t("fresher_you"),
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/HL COVER 5.jpg",
-      title: t("fresh_meals"),
-      subtitle: t("fresher_you"),
-    },
-  ];
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -86,8 +84,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/30 z-10"></div>
 
       {/* Text Overlay */}
-      <div className={`absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 transition-all duration-700 ease-in-out ${language === 'ar' ? 'font-[serif]' : ''}`}>
-        <h1 className={`text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,6vw,4rem)] font-bold mb-1 md:mb-4 leading-tight drop-shadow-xl animate-fade-in-up ${language === 'ar' ? 'font-[serif]' : ''}`}>
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 transition-all duration-700 ease-in-out">
+        <h1 className="text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,6vw,4rem)] font-bold mb-1 md:mb-4 leading-tight drop-shadow-xl animate-fade-in-up">
           {heroSlides[activeIndex].title}
           <br />
           <span className="text-yellow-300 inline-flex items-center gap-1 md:gap-2">
@@ -96,26 +94,26 @@ const Hero = () => {
           </span>
         </h1>
 
-        <p className={`mt-1 md:mt-4 text-[clamp(0.75rem,1.25vw,1.25rem)] text-white/90 max-w-xl drop-shadow animate-fade-in-up ${language === 'ar' ? 'font-[serif]' : ''}`}>
-          {t("hero_description")}
+        <p className="mt-1 md:mt-4 text-[clamp(0.75rem,1.25vw,1.25rem)] text-white/90 max-w-xl drop-shadow animate-fade-in-up">
+          Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.
         </p>
 
-        <div className={`flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6">
           <a
             href="https://app.techrar.com/FRSH"
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base ${language === 'ar' ? 'font-[serif]' : ''}`}
+            className="px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base"
           >
-            {t("subscribe_now")}
+            Subscribe Now
           </a>
           <a
             href="https://wa.me/966500961496"
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-4 md:px-6 py-2 md:py-3 bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition animate-fade-in-up text-sm md:text-base ${language === 'ar' ? 'font-[serif]' : ''}`}
+            className="px-4 md:px-6 py-2 md:py-3 bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition animate-fade-in-up text-sm md:text-base"
           >
-            {t("whatsapp_us")}
+            WhatsApp Us
           </a>
         </div>
       </div>
