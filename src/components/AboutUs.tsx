@@ -92,7 +92,7 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Subscribe to FRSH
+                Download FRSH
               </motion.a>
               <motion.a
                 href="https://wa.me/966500961496"
