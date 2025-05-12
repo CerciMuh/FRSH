@@ -1,25 +1,27 @@
-
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useEffect, useState, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [hoverItem, setHoverItem] = useState<string | null>(null);
+  const [pendingSection, setPendingSection] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigationItems = [
-    { id: 'about', label: 'About', path: '/#about' },
-    { id: 'lifestyle', label: 'Lifestyle', path: '/#lifestyle' },
-    { id: 'vision', label: 'Vision', path: '/#vision' },
-    { id: 'subscribe', label: 'Subscribe', path: '/#subscribe' },
-    { id: 'faq', label: 'FAQ', path: '/faq' },
-    { id: 'legal', label: 'Legal', path: '/legal' }
+    { id: 'about', label: 'About', type: 'anchor' },
+    { id: 'lifestyle', label: 'Lifestyle', type: 'anchor' },
+    { id: 'vision', label: 'Vision', type: 'anchor' },
+    { id: 'subscribe', label: 'Subscribe', type: 'anchor' },
+    { id: 'faq', label: 'FAQ', path: '/faq', type: 'route' },
+    { id: 'legal', label: 'Legal', path: '/legal', type: 'route' }
   ];
 
+  // Handle scroll and active section detection on landing page
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -27,12 +29,11 @@ const Navbar = () => {
       if (location.pathname === '/') {
         const scrollPosition = window.scrollY + 100;
         navigationItems.forEach((item) => {
-          if (item.id === 'faq' || item.id === 'legal') return; // Skip external pages
-          
-          const element = document.getElementById(item.id);
-          if (element) {
-            const top = element.offsetTop;
-            const height = element.offsetHeight;
+          if (item.type !== 'anchor') return;
+          const el = document.getElementById(item.id);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
             if (scrollPosition >= top && scrollPosition < top + height) {
               setActiveSection(item.id);
             }
@@ -45,47 +46,54 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  const scrollToSection = useCallback((sectionId: string) => {
-    if (location.pathname !== '/') {
-      window.location.href = `/#${sectionId}`;
-      return;
+  // After navigating back to landing page for anchor, perform scroll
+  useEffect(() => {
+    if (location.pathname === '/' && pendingSection) {
+      const section = document.getElementById(pendingSection);
+      if (section) {
+        window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+      }
+      setPendingSection(null);
+      setMobileMenuOpen(false);
     }
-    
+  }, [location.pathname, pendingSection]);
+
+  const scrollToSection = useCallback((sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, []);
 
   const scrollToFooter = () => {
     const footer = document.querySelector('footer');
-    if (footer) {
-      footer.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (footer) footer.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
 
-  const isActive = (item: { id: string, path: string }) => {
-    if (location.pathname === '/') {
-      return activeSection === item.id;
+  const isActive = (item: typeof navigationItems[number]) => {
+    if (item.type === 'anchor') {
+      return location.pathname === '/' && activeSection === item.id;
     }
-    // For external pages like FAQ and Legal
     return location.pathname === item.path;
   };
 
-  const handleNavItemClick = (e: React.MouseEvent, item: { id: string, path: string }) => {
-    e.preventDefault();
-    
-    // Handle external pages
-    if (item.path.startsWith('/') && !item.path.includes('#')) {
-      if (location.pathname !== item.path) {
-        window.location.href = item.path;
+  const handleNavItemClick = (
+    e: React.MouseEvent,
+    item: typeof navigationItems[number]
+  ) => {
+    if (item.type === 'anchor') {
+      e.preventDefault();
+      if (location.pathname !== '/') {
+        setPendingSection(item.id);
+        navigate('/');
+      } else {
+        scrollToSection(item.id);
       }
-    } else {
-      // Handle scroll to section
-      const sectionId = item.id;
-      scrollToSection(sectionId);
+    } else if (item.type === 'route') {
+      // for route links, closing mobile menu suffices
+      setMobileMenuOpen(false);
     }
   };
 
@@ -98,10 +106,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4">
-        <Link
-          to="/"
-          className="group"
-        >
+        <Link to="/" className="group">
           <img
             src="/lovable-uploads/logo-arabic-green.png"
             alt="FRSH Logo"
@@ -111,22 +116,36 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navigationItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.path}
-              className={`relative py-2 px-3 text-sm lg:text-base rounded-md transition-all duration-300 ${
-                isActive(item)
-                  ? 'text-frsh-green-light font-medium bg-white'
-                  : 'text-frsh-green hover:text-frsh-green-light hover:bg-white'
-              }`}
-              onClick={(e) => handleNavItemClick(e, item)}
-              onMouseEnter={() => setHoverItem(item.id)}
-              onMouseLeave={() => setHoverItem(null)}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navigationItems.map((item) => {
+            const base = 'relative py-2 px-3 text-sm lg:text-base rounded-md transition-all duration-300';
+            const activeClass = isActive(item)
+              ? 'text-frsh-green-light font-medium bg-white'
+              : 'text-frsh-green hover:text-frsh-green-light hover:bg-white';
+
+            if (item.type === 'anchor') {
+              return (
+                <a
+                  key={item.id}
+                  href="#"
+                  className={`${base} ${activeClass}`}
+                  onClick={(e) => handleNavItemClick(e, item)}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={item.id}
+                to={item.path!}
+                className={`${base} ${activeClass}`}
+                onClick={(e) => handleNavItemClick(e, item)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
 
           <Button
             onClick={scrollToFooter}
@@ -156,26 +175,41 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col p-4 gap-2">
-          {navigationItems.map((item, index) => (
-            <a
-              key={item.id}
-              href={item.path}
-              className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${
-                isActive(item)
-                  ? 'text-frsh-green-light font-medium bg-white'
-                  : 'text-frsh-green'
-              }`}
-              onClick={(e) => handleNavItemClick(e, item)}
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              {item.label}
-              <ChevronDown
-                className={`w-4 h-4 transition-transform ${
-                  isActive(item) ? 'rotate-180' : ''
-                }`}
-              />
-            </a>
-          ))}
+          {navigationItems.map((item, idx) => {
+            const mobileActive = isActive(item)
+              ? 'text-frsh-green-light font-medium bg-white'
+              : 'text-frsh-green';
+
+            if (item.type === 'anchor') {
+              return (
+                <a
+                  key={item.id}
+                  href="#"
+                  className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${mobileActive}`}
+                  onClick={(e) => handleNavItemClick(e, item)}
+                  style={{ animationDelay: `${idx * 0.05}s` }}
+                >
+                  {item.label}
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${isActive(item) ? 'rotate-180' : ''}`} />
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={item.id}
+                to={item.path!}
+                className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${mobileActive}`}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{ animationDelay: `${idx * 0.05}s` }}
+              >
+                {item.label}
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isActive(item) ? 'rotate-180' : ''}`} />
+              </Link>
+            );
+          })}
           <Button
             onClick={scrollToFooter}
             className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm"
