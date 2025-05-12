@@ -15,6 +15,7 @@ const Navbar = () => {
     { id: 'about', label: 'About', path: '/#about' },
     { id: 'lifestyle', label: 'Lifestyle', path: '/#lifestyle' },
     { id: 'vision', label: 'Vision', path: '/#vision' },
+    { id: 'subscribe', label: 'Subscribe', path: '/#subscribe' },
     { id: 'faq', label: 'FAQ', path: '/faq' },
     { id: 'legal', label: 'Legal', path: '/legal' }
   ];
@@ -77,7 +78,7 @@ const Navbar = () => {
     e.preventDefault();
     
     // Handle external pages
-    if (item.path.startsWith('/')) {
+    if (item.path.startsWith('/') && !item.path.includes('#')) {
       if (location.pathname !== item.path) {
         window.location.href = item.path;
       }

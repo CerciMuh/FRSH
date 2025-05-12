@@ -1,9 +1,6 @@
 
-import { useState } from 'react';
-import { Mail, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/components/ui/use-toast';
+import { Calendar } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -13,25 +10,6 @@ import {
 } from "@/components/ui/card";
 
 const SubscribeSection = () => {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    
-    // Simulate subscription process
-    setTimeout(() => {
-      toast({
-        title: "Request received!",
-        description: "We'll contact you soon about our meal plans.",
-      });
-      setEmail('');
-      setLoading(false);
-    }, 1000);
-  };
-
   return (
     <section className="bg-frsh-cream py-16" id="subscribe">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -79,28 +57,22 @@ const SubscribeSection = () => {
             <CardHeader>
               <CardTitle className="text-frsh-green font-calvino text-2xl">Get Started</CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-frsh-gray-dark/50 h-5 w-5" />
-                  <Input
-                    type="email"
-                    placeholder="Your email address"
-                    className="pl-10 py-6 bg-white border-frsh-gray-dark/20 text-frsh-gray-dark"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
+            <CardContent className="flex flex-col items-center justify-center py-8">
+              <p className="text-frsh-gray-dark/80 mb-6 text-center">
+                Ready to start your healthy meal subscription? Click below to access our subscription portal.
+              </p>
+              <a 
+                href="https://app.techrar.com/FRSH" 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button 
-                  type="submit" 
                   className="w-full bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark font-medium px-6 py-6 flex items-center gap-2 justify-center"
-                  disabled={loading}
                 >
                   <Calendar className="h-5 w-5" />
-                  {loading ? "Processing..." : "Start My Subscription"}
+                  Start My Subscription
                 </Button>
-              </form>
+              </a>
             </CardContent>
             <CardFooter className="flex flex-col items-start pt-4">
               <p className="text-sm text-frsh-gray-dark/70 mb-2">Or download our app:</p>

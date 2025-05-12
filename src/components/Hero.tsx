@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import {
@@ -99,12 +100,12 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6">
           <a
-            href="https://apps.apple.com/app/id6742881525"
+            href="https://app.techrar.com/FRSH"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base"
           >
-            Try Us Out
+            Subscribe Now
           </a>
           <a
             href="https://wa.me/966500961496"
@@ -158,4 +159,3 @@ const Hero = () => {
 };
 
 export default Hero;
- 
