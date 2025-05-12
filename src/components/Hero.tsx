@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
 import {
@@ -116,19 +115,6 @@ const Hero = () => {
             WhatsApp Us
           </a>
         </div>
-      </div>
-
-      {/* Slide Dots */}
-      <div className="absolute bottom-14 md:bottom-20 left-1/2 -translate-x-1/2 flex gap-1.5 md:gap-2 z-30">
-        {heroSlides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => carouselApi?.scrollTo(idx)}
-            className={`w-1.5 h-1.5 md:w-3 md:h-3 rounded-full transition ${
-              idx === activeIndex ? "bg-yellow-400 scale-125" : "bg-white/50"
-            }`}
-          />
-        ))}
       </div>
 
       {/* Bouncing Arrow */}
