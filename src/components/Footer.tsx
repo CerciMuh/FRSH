@@ -121,16 +121,6 @@ const Footer = () => {
                   VAT Information
                 </Link>
               </li>
-              <li>
-                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
