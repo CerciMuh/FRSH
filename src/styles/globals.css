@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Labil Grotesk';
   src: url('/fonts/LabilGroteskTrial-Regular.otf') format('opentype');
@@ -17,8 +18,18 @@
   --font-secondary: 'Calvino', serif;
 }
 
+/* RTL Support */
+html[dir="rtl"] {
+  --font-primary: 'Labil Grotesk', 'Traditional Arabic', sans-serif;
+  --font-secondary: 'Calvino', 'Traditional Arabic', serif;
+}
+
 * {
   font-family: var(--font-primary);
+}
+
+html[dir="rtl"] * {
+  letter-spacing: 0;
 }
 
 /* Section Titles */
@@ -82,6 +93,15 @@ p, span, div {
   font-family: var(--font-secondary);
 }
 
+/* RTL specific styles */
+html[dir="rtl"] .font-labil {
+  font-family: 'Traditional Arabic', sans-serif;
+}
+
+html[dir="rtl"] .font-calvino {
+  font-family: 'Traditional Arabic', serif;
+}
+
 /* Responsive Text */
 @media (max-width: 768px) {
   .section-title {
@@ -104,3 +124,14 @@ p, span, div {
     font-size: 1rem;
   }
 } 
+
+/* RTL Animation modifications */
+html[dir="rtl"] .animate-scroll-x {
+  animation-direction: reverse;
+}
+
+/* RTL additional fixes */
+html[dir="rtl"] .ltr-only {
+  direction: ltr;
+  display: inline-block;
+}

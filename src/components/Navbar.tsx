@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Menu, ChevronDown } from 'lucide-react';
 import { useEffect, useState, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,14 +12,15 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [hoverItem, setHoverItem] = useState<string | null>(null);
   const location = useLocation();
+  const { t, language } = useLanguage();
 
   const navigationItems = [
-    { id: 'about', label: 'About', path: '/#about' },
-    { id: 'lifestyle', label: 'Lifestyle', path: '/#lifestyle' },
-    { id: 'vision', label: 'Vision', path: '/#vision' },
-    { id: 'subscribe', label: 'Subscribe', path: '/#subscribe' },
-    { id: 'faq', label: 'FAQ', path: '/faq' },
-    { id: 'legal', label: 'Legal', path: '/legal' }
+    { id: 'about', label: t('about'), path: '/#about' },
+    { id: 'lifestyle', label: t('lifestyle'), path: '/#lifestyle' },
+    { id: 'vision', label: t('vision'), path: '/#vision' },
+    { id: 'subscribe', label: t('subscribe'), path: '/#subscribe' },
+    { id: 'faq', label: t('faq'), path: '/faq' },
+    { id: 'legal', label: t('legal'), path: '/legal' }
   ];
 
   useEffect(() => {
@@ -43,7 +46,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, [location.pathname, navigationItems]);
 
   const scrollToSection = useCallback((sectionId: string) => {
     if (location.pathname !== '/') {
@@ -97,7 +100,7 @@ const Navbar = () => {
           : 'bg-transparent py-3'
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-4">
+      <div className={`container mx-auto flex justify-between items-center px-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
         <Link
           to="/"
           className="group"
@@ -110,7 +113,9 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        <div className={`hidden md:flex items-center gap-6 lg:gap-8 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+          <LanguageSwitcher />
+          
           {navigationItems.map((item) => (
             <a
               key={item.id}
@@ -133,20 +138,23 @@ const Navbar = () => {
             className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden text-sm lg:text-base"
           >
             <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">
-              Reach Us
+              {t('reach_us')}
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          className="md:hidden text-frsh-green hover:bg-frsh-green/10"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <Menu className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
-        </Button>
+        {/* Mobile Menu Button with Language Switcher */}
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <Button
+            variant="ghost"
+            className="text-frsh-green hover:bg-frsh-green/10"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <Menu className={`transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -154,6 +162,7 @@ const Navbar = () => {
         className={`md:hidden absolute w-full bg-frsh-cream shadow-lg transition-all duration-500 overflow-hidden ${
           mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
         }`}
+        style={{ textAlign: language === 'ar' ? 'right' : 'left' }}
       >
         <div className="flex flex-col p-4 gap-2">
           {navigationItems.map((item, index) => (
@@ -166,7 +175,7 @@ const Navbar = () => {
                   : 'text-frsh-green'
               }`}
               onClick={(e) => handleNavItemClick(e, item)}
-              style={{ animationDelay: `${index * 0.05}s` }}
+              style={{ flexDirection: language === 'ar' ? 'row-reverse' : 'row' }}
             >
               {item.label}
               <ChevronDown
@@ -180,7 +189,7 @@ const Navbar = () => {
             onClick={scrollToFooter}
             className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm"
           >
-            Reach Us
+            {t('reach_us')}
           </Button>
         </div>
       </div>
