@@ -58,11 +58,52 @@ const FAQ = () => {
         },
         {
           question: "What payment methods do you accept?",
-          answer: "We accept all major credit cards, Apple Pay, and bank transfers. Payment is processed securely through our platform."
+          answer: "We accept VISA, MADA, Tabby, Tamara, and other major payment methods. Payment is processed securely through our platform."
         },
         {
           question: "Can I cancel my subscription anytime?",
-          answer: "Yes, you can cancel your subscription at any time through our app with no cancellation fees. We only ask for 48 hours notice before your next scheduled delivery."
+          answer: "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will also be deducted."
+        }
+      ]
+    },
+    {
+      category: "Subscription Terms & Conditions",
+      faqs: [
+        {
+          question: "How do I subscribe to FRSH meals?",
+          answer: "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
+        },
+        {
+          question: "What's the cancellation policy?",
+          answer: "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
+        },
+        {
+          question: "How long does subscription activation take?",
+          answer: "The subscription activation period is four working days, and you will receive the first meal at the address registered on the website. In case of your absence to receive it or someone substituting for you, we apologize for any compensation (you can change the address at least 2 days in advance)."
+        },
+        {
+          question: "What are the delivery times?",
+          answer: "Choose a suitable time for you with flexibility according to the following periods: From 6 AM to 2 PM or From 3 PM to 11 PM. Delivery will be made according to the route selected for neighborhoods in the chosen period."
+        },
+        {
+          question: "Can I cancel my subscription during promotional periods?",
+          answer: "If the subscription is during promotional or discount periods, it cannot be canceled."
+        },
+        {
+          question: "How should I store my meals?",
+          answer: "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 3 days."
+        },
+        {
+          question: "Can I freeze my subscription?",
+          answer: "You can freeze your subscription for a period of less than 90 days through the website, provided it is done 4 days before the scheduled date. If you do not freeze your subscription, do not receive your meals, and your subscription period ends, we cannot compensate you."
+        },
+        {
+          question: "How do I renew my subscription?",
+          answer: "Renew your subscription before it expires with sufficient time to ensure uninterrupted meal delivery, at most 2 days before the expiration date."
+        },
+        {
+          question: "Can I change my meals?",
+          answer: "You can change meals up to 48 hours before the delivery date."
         }
       ]
     }
@@ -105,6 +146,21 @@ const FAQ = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
+          </div>
+          
+          {/* Legal Notice */}
+          <div className="mb-10 p-4 bg-frsh-cream/50 border border-frsh-gray-dark/10 rounded-lg text-center">
+            <p className="text-sm font-labil text-frsh-gray-dark/80 italic">
+              All terms and conditions are subject to modification based on the decision of "FRSH" management, and changes will be published in due course.
+            </p>
+            <a 
+              href="https://app.techrar.com/FRSH" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="mt-2 inline-block text-frsh-green hover:underline text-sm"
+            >
+              Visit our app for more information
+            </a>
           </div>
           
           {/* FAQ Accordions by Category */}

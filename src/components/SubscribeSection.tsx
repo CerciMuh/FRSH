@@ -58,6 +58,17 @@ const SubscribeSection = () => {
             {loading ? "Subscribing..." : "Subscribe"}
           </Button>
         </form>
+        
+        {/* Payment Methods */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-frsh-gray-dark/70 mb-3 font-labil">Payment methods we accept:</p>
+          <div className="flex justify-center items-center gap-4 flex-wrap">
+            <img src="/lovable-uploads/visa-logo.png" alt="VISA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/lovable-uploads/mada-logo.png" alt="MADA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/lovable-uploads/tabby-logo.png" alt="Tabby" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/lovable-uploads/tamara-logo.png" alt="Tamara" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -25,19 +25,19 @@ const Legal = () => {
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
                     <span className="font-medium text-frsh-gray-dark">Company Name:</span>
-                    <span className="text-frsh-gray-dark/80">FRSH Healthy Food Co.</span>
+                    <span className="text-frsh-gray-dark/80">مؤسسة موثقة لتقديم الوجبات</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
                     <span className="font-medium text-frsh-gray-dark">Registration Number:</span>
-                    <span className="text-frsh-gray-dark/80">CR-1234567890</span>
+                    <span className="text-frsh-gray-dark/80">1010739046</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
                     <span className="font-medium text-frsh-gray-dark">Registered Office:</span>
-                    <span className="text-frsh-gray-dark/80">Riyadh, Saudi Arabia</span>
+                    <span className="text-frsh-gray-dark/80">الرياض، الرياض - المملكة 12541</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between pb-1">
-                    <span className="font-medium text-frsh-gray-dark">Year Established:</span>
-                    <span className="text-frsh-gray-dark/80">2023</span>
+                    <span className="font-medium text-frsh-gray-dark">Certificate Date:</span>
+                    <span className="text-frsh-gray-dark/80">17/04/2022</span>
                   </div>
                 </div>
               </div>
@@ -49,31 +49,35 @@ const Legal = () => {
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
                     <span className="font-medium text-frsh-gray-dark">VAT Registration Number:</span>
-                    <span className="text-frsh-gray-dark/80">310987654321</span>
+                    <span className="text-frsh-gray-dark/80">310307678000003</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
+                    <span className="font-medium text-frsh-gray-dark">Effective Registration Date:</span>
+                    <span className="text-frsh-gray-dark/80">2022/05/01</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
+                    <span className="font-medium text-frsh-gray-dark">Tax Period:</span>
+                    <span className="text-frsh-gray-dark/80">Quarterly - ربع سنوي</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between">
-                    <span className="font-medium text-frsh-gray-dark">Tax Authority:</span>
-                    <span className="text-frsh-gray-dark/80">General Authority of Zakat and Tax, KSA</span>
+                    <span className="font-medium text-frsh-gray-dark">Certificate Number:</span>
+                    <span className="text-frsh-gray-dark/80">3110026748</span>
                   </div>
                 </div>
               </div>
             </section>
             
             <section>
-              <h2 className="text-2xl font-calvino font-bold text-frsh-green mb-4">Licenses & Certifications</h2>
+              <h2 className="text-2xl font-calvino font-bold text-frsh-green mb-4">License Information</h2>
               <div className="bg-frsh-cream/30 rounded-lg p-6">
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
-                    <span className="font-medium text-frsh-gray-dark">Food Safety Certificate:</span>
-                    <span className="text-frsh-gray-dark/80">SFDA-2023-87654</span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between border-b border-frsh-gray-dark/10 pb-3">
-                    <span className="font-medium text-frsh-gray-dark">Health & Hygiene Rating:</span>
-                    <span className="text-frsh-gray-dark/80">5 Stars (Excellent)</span>
+                    <span className="font-medium text-frsh-gray-dark">CR / License / Contract Number:</span>
+                    <span className="text-frsh-gray-dark/80">1010845504</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between">
-                    <span className="font-medium text-frsh-gray-dark">Quality Management:</span>
-                    <span className="text-frsh-gray-dark/80">ISO 22000:2018 Certified</span>
+                    <span className="font-medium text-frsh-gray-dark">Branch Name:</span>
+                    <span className="text-frsh-gray-dark/80">مؤسسة موثقة لتقديم الوجبات</span>
                   </div>
                 </div>
               </div>

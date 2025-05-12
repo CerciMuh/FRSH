@@ -114,23 +114,16 @@ const Navbar = () => {
             <a
               key={item.id}
               href={item.path}
-              className={`relative py-2 text-sm lg:text-base group ${
+              className={`relative py-2 px-3 text-sm lg:text-base rounded-md transition-all duration-300 ${
                 isActive(item)
-                  ? 'text-frsh-green-light font-medium'
-                  : 'text-frsh-green hover:text-frsh-green-light'
-              } transition-colors`}
+                  ? 'text-frsh-green-light font-medium bg-white'
+                  : 'text-frsh-green hover:text-frsh-green-light hover:bg-white'
+              }`}
               onClick={(e) => handleNavItemClick(e, item)}
               onMouseEnter={() => setHoverItem(item.id)}
               onMouseLeave={() => setHoverItem(null)}
             >
               {item.label}
-              <span
-                className={`absolute bottom-0 left-0 w-full h-0.5 bg-frsh-yellow transform origin-left transition-transform duration-300 ${
-                  isActive(item) || hoverItem === item.id
-                    ? 'scale-x-100'
-                    : 'scale-x-0'
-                }`}
-              ></span>
             </a>
           ))}
 
@@ -166,9 +159,9 @@ const Navbar = () => {
             <a
               key={item.id}
               href={item.path}
-              className={`py-3 px-4 hover:bg-frsh-cream-darker rounded-md flex items-center justify-between text-sm ${
+              className={`py-3 px-4 hover:bg-white rounded-md flex items-center justify-between text-sm ${
                 isActive(item)
-                  ? 'text-frsh-green-light font-medium'
+                  ? 'text-frsh-green-light font-medium bg-white'
                   : 'text-frsh-green'
               }`}
               onClick={(e) => handleNavItemClick(e, item)}
