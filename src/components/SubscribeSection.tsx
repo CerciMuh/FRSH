@@ -98,7 +98,7 @@ const SubscribeSection = () => {
             <img src="/lovable-uploads/visa-logo.png" alt="VISA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/mada-logo.png" alt="MADA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             <img src="/lovable-uploads/tabby-logo.png" alt="Tabby" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-            <img src="/lovable-uploads/tamara-logo.png" alt="Tamara" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+            <img src="/lovable-uploads/tamara-logo.png" alt="Tamara" className="h-16 object-contain opacity-80 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </div>
