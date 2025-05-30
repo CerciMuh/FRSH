@@ -1,4 +1,3 @@
-
 import { Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -30,9 +29,9 @@ const Footer = () => {
   return (
     <footer className="bg-frsh-green text-frsh-cream">
       <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           {/* Logo and Social Links */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center">
             <Link to="/">
               <img
                 src="/lovable-uploads/logo-arabic-cream.png"
@@ -81,7 +80,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="text-center md:text-left">
+          <div className="text-center">
             <h3 className="text-lg font-calvino font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 font-labil">
               <li>
@@ -103,28 +102,6 @@ const Footer = () => {
                 <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
                   FAQs
                 </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="text-center md:text-left">
-            <h3 className="text-lg font-calvino font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 font-labil">
-              <li>
-                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  Company Registration
-                </Link>
-              </li>
-              <li>
-                <Link to="/legal" className="hover:text-frsh-cream/80 transition-colors">
-                  VAT Information
-                </Link>
-                <li>
-                <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
-                  TCs
-                </Link>
-              </li>
               </li>
             </ul>
           </div>

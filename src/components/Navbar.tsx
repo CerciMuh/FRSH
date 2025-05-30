@@ -21,8 +21,7 @@ const Navbar = () => {
     { id: 'lifestyle', label: 'Lifestyle', type: 'anchor' },
     { id: 'vision', label: 'Vision', type: 'anchor' },
     { id: 'subscribe', label: 'Subscribe', type: 'anchor' },
-    { id: 'faq', label: 'FAQ', path: '/faq', type: 'route' },
-    { id: 'legal', label: 'Legal', path: '/legal', type: 'route' }
+    { id: 'faq', label: 'FAQ', path: '/faq', type: 'route' }
   ];
 
   // 1) Track scroll to set sticky navbar and update activeSection on landing
