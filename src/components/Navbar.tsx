@@ -7,8 +7,11 @@ import {
   useCallback
 } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -17,11 +20,11 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { id: 'about', label: 'About', type: 'anchor' },
-    { id: 'lifestyle', label: 'Lifestyle', type: 'anchor' },
-    { id: 'vision', label: 'Vision', type: 'anchor' },
-    { id: 'subscribe', label: 'Subscribe', type: 'anchor' },
-    { id: 'faq', label: 'FAQ', path: '/faq', type: 'route' }
+    { id: 'about', label: t('navbar.navigation.about'), type: 'anchor' },
+    { id: 'lifestyle', label: t('navbar.navigation.lifestyle'), type: 'anchor' },
+    { id: 'vision', label: t('navbar.navigation.vision'), type: 'anchor' },
+    { id: 'subscribe', label: t('navbar.navigation.subscribe'), type: 'anchor' },
+    { id: 'faq', label: t('navbar.navigation.faq'), path: '/faq', type: 'route' }
   ];
 
   // 1) Track scroll to set sticky navbar and update activeSection on landing
@@ -43,7 +46,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [location.pathname]);
 
-  // 2) When coming back to “/” with a pendingSection, scroll immediately (before paint)
+  // 2) When coming back to " / " with a pendingSection, scroll immediately (before paint)
   useLayoutEffect(() => {
     if (location.pathname === '/' && pendingSection) {
       const el = document.getElementById(pendingSection);
@@ -147,12 +150,14 @@ const Navbar = () => {
             );
           })}
 
+          <LanguageSwitcher />
+
           <Button
             onClick={scrollToFooter}
             className="group bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark relative overflow-hidden text-sm lg:text-base"
           >
             <span className="relative z-10 group-hover:text-frsh-gray-dark transition-colors">
-              Reach Us
+              {t('navbar.reachUs')}
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-frsh-yellow-light to-frsh-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
@@ -216,11 +221,16 @@ const Navbar = () => {
               </Link>
             );
           })}
+          
+          <div className="py-3 px-4">
+            <LanguageSwitcher />
+          </div>
+
           <Button
             onClick={scrollToFooter}
             className="mt-4 bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark text-sm"
           >
-            Reach Us
+            {t('navbar.reachUs')}
           </Button>
         </div>
       </div>

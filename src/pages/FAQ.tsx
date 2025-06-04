@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import {
@@ -10,116 +10,131 @@ import {
 } from "@/components/ui/accordion";
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
+import { Button } from '../components/ui/button';
+
+// Custom WhatsApp icon
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
 
 const FAQ = () => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   
-  const faqCategories = [
+  const categories = [
     {
-      category: "Ordering & Delivery",
-      faqs: [
+      id: 'ordering',
+      title: t('faqPage.categories.ordering.title'),
+      questions: [
         {
-          question: "How does meal delivery work?",
-          answer: "We prepare fresh meals in our kitchen and deliver them directly to your door. You choose your meal plan, select your preferences, and we take care of the rest."
+          question: t('faqPage.categories.ordering.questions.delivery.question'),
+          answer: t('faqPage.categories.ordering.questions.delivery.answer')
         },
         {
-          question: "What areas do you deliver to?",
-          answer: "We currently deliver to all major cities in Saudi Arabia. Enter your postal code in our app to check if we deliver to your specific area."
+          question: t('faqPage.categories.ordering.questions.areas.question'),
+          answer: t('faqPage.categories.ordering.questions.areas.answer')
         },
         {
-          question: "How often will I receive deliveries?",
-          answer: "Depending on your subscription plan, you can receive deliveries daily, three times a week, or weekly. You can select your preferred delivery frequency in our app."
+          question: t('faqPage.categories.ordering.questions.frequency.question'),
+          answer: t('faqPage.categories.ordering.questions.frequency.answer')
         }
       ]
     },
     {
-      category: "Meal Plans & Customization",
-      faqs: [
+      id: 'mealPlans',
+      title: t('faqPage.categories.mealPlans.title'),
+      questions: [
         {
-          question: "Can I customize my meal plan?",
-          answer: "Yes! You can customize your meal plan based on your dietary preferences, allergies, and calorie requirements. Our app allows you to easily make these selections."
+          question: t('faqPage.categories.mealPlans.questions.customization.question'),
+          answer: t('faqPage.categories.mealPlans.questions.customization.answer')
         },
         {
-          question: "How fresh are the meals?",
-          answer: "Our meals are prepared fresh daily using high-quality ingredients. We ensure they reach you in perfect condition with our temperature-controlled packaging."
+          question: t('faqPage.categories.mealPlans.questions.freshness.question'),
+          answer: t('faqPage.categories.mealPlans.questions.freshness.answer')
         },
         {
-          question: "Do you accommodate dietary restrictions?",
-          answer: "Yes! We offer options for various dietary needs including vegetarian, vegan, gluten-free, and more. You can customize your meal plan according to your preferences."
+          question: t('faqPage.categories.mealPlans.questions.dietary.question'),
+          answer: t('faqPage.categories.mealPlans.questions.dietary.answer')
         }
       ]
     },
     {
-      category: "Subscription & Billing",
-      faqs: [
+      id: 'subscription',
+      title: t('faqPage.categories.subscription.title'),
+      questions: [
         {
-          question: "How do I manage my subscription?",
-          answer: "You can manage your subscription through our mobile app. There, you can pause, skip, or cancel deliveries as needed."
+          question: t('faqPage.categories.subscription.questions.management.question'),
+          answer: t('faqPage.categories.subscription.questions.management.answer')
         },
         {
-          question: "What payment methods do you accept?",
-          answer: "We accept VISA, MADA, Tabby, Tamara, and other major payment methods. Payment is processed securely through our platform."
+          question: t('faqPage.categories.subscription.questions.payment.question'),
+          answer: t('faqPage.categories.subscription.questions.payment.answer')
         },
         {
-          question: "Can I cancel my subscription anytime?",
-          answer: "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will also be deducted."
+          question: t('faqPage.categories.subscription.questions.cancellation.question'),
+          answer: t('faqPage.categories.subscription.questions.cancellation.answer')
         }
       ]
     },
     {
-      category: "Subscription Terms & Conditions",
-      faqs: [
+      id: 'terms',
+      title: t('faqPage.categories.terms.title'),
+      questions: [
         {
-          question: "How do I subscribe to FRSH meals?",
-          answer: "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
+          question: t('faqPage.categories.terms.questions.subscribe.question'),
+          answer: t('faqPage.categories.terms.questions.subscribe.answer')
         },
         {
-          question: "What's the cancellation policy?",
-          answer: "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
+          question: t('faqPage.categories.terms.questions.cancellationPolicy.question'),
+          answer: t('faqPage.categories.terms.questions.cancellationPolicy.answer')
         },
         {
-          question: "How long does subscription activation take?",
-          answer: "The subscription activation period is four working days, and you will receive the first meal at the address registered on the website. In case of your absence to receive it or someone substituting for you, we apologize for any compensation (you can change the address at least 2 days in advance)."
+          question: t('faqPage.categories.terms.questions.activation.question'),
+          answer: t('faqPage.categories.terms.questions.activation.answer')
         },
         {
-          question: "What are the delivery times?",
-          answer: "Choose a suitable time for you with flexibility according to the following periods: From 6 AM to 2 PM or From 3 PM to 11 PM. Delivery will be made according to the route selected for neighborhoods in the chosen period."
+          question: t('faqPage.categories.terms.questions.deliveryTimes.question'),
+          answer: t('faqPage.categories.terms.questions.deliveryTimes.answer')
         },
         {
-          question: "Can I cancel my subscription during promotional periods?",
-          answer: "If the subscription is during promotional or discount periods, it cannot be canceled."
+          question: t('faqPage.categories.terms.questions.promotional.question'),
+          answer: t('faqPage.categories.terms.questions.promotional.answer')
         },
         {
-          question: "How should I store my meals?",
-          answer: "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 3 days."
+          question: t('faqPage.categories.terms.questions.storage.question'),
+          answer: t('faqPage.categories.terms.questions.storage.answer')
         },
         {
-          question: "Can I freeze my subscription?",
-          answer: "You can freeze your subscription for a period of less than 90 days through the website, provided it is done 4 days before the scheduled date. If you do not freeze your subscription, do not receive your meals, and your subscription period ends, we cannot compensate you."
+          question: t('faqPage.categories.terms.questions.freeze.question'),
+          answer: t('faqPage.categories.terms.questions.freeze.answer')
         },
         {
-          question: "How do I renew my subscription?",
-          answer: "Renew your subscription before it expires with sufficient time to ensure uninterrupted meal delivery, at most 2 days before the expiration date."
+          question: t('faqPage.categories.terms.questions.renewal.question'),
+          answer: t('faqPage.categories.terms.questions.renewal.answer')
         },
         {
-          question: "Can I change my meals?",
-          answer: "You can change meals up to 48 hours before the delivery date."
+          question: t('faqPage.categories.terms.questions.changeMeals.question'),
+          answer: t('faqPage.categories.terms.questions.changeMeals.answer')
         }
       ]
     }
   ];
   
   // Filter FAQs based on search query
-  const filteredFAQs = searchQuery
-    ? faqCategories.map(category => ({
-        ...category,
-        faqs: category.faqs.filter(
-          faq => 
-            faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      })).filter(category => category.faqs.length > 0)
-    : faqCategories;
+  const filteredCategories = categories.map(category => ({
+    ...category,
+    questions: category.questions.filter(q =>
+      q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      q.answer.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  })).filter(category => category.questions.length > 0);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -129,10 +144,10 @@ const FAQ = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-calvino font-bold text-frsh-green mb-4">
-              Frequently Asked Questions
+              {t('faqPage.title')}
             </h1>
             <p className="text-lg md:text-xl font-labil text-frsh-gray-dark/80 max-w-2xl mx-auto">
-              Find answers to your questions about our meal plans, delivery service, and more.
+              {t('faqPage.description')}
             </p>
           </div>
           
@@ -141,7 +156,7 @@ const FAQ = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-frsh-gray-dark/50 h-5 w-5" />
             <Input 
               type="text" 
-              placeholder="Search FAQs..."
+              placeholder={t('faqPage.searchPlaceholder')}
               className="pl-10 py-6 bg-white border-frsh-gray-dark/20 text-frsh-gray-dark"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -151,7 +166,7 @@ const FAQ = () => {
           {/* Legal Notice */}
           <div className="mb-10 p-4 bg-frsh-cream/50 border border-frsh-gray-dark/10 rounded-lg text-center">
             <p className="text-sm font-labil text-frsh-gray-dark/80 italic">
-              All terms and conditions are subject to modification based on the decision of "FRSH" management, and changes will be published in due course.
+              {t('faqPage.legalNotice.text')}
             </p>
             <a 
               href="https://app.techrar.com/FRSH" 
@@ -159,54 +174,52 @@ const FAQ = () => {
               rel="noopener noreferrer" 
               className="mt-2 inline-block text-frsh-green hover:underline text-sm"
             >
-              Visit our app for more information
+              {t('faqPage.legalNotice.appLink')}
             </a>
           </div>
           
           {/* FAQ Accordions by Category */}
-          {filteredFAQs.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-10">
-              <h2 className="text-2xl font-calvino font-bold text-frsh-green mb-4">{category.category}</h2>
-              <Accordion type="single" collapsible className="mb-6">
-                {category.faqs.map((faq, faqIndex) => (
-                  <AccordionItem 
-                    key={faqIndex} 
-                    value={`item-${categoryIndex}-${faqIndex}`}
-                    className="border-b border-frsh-gray-dark/10"
-                  >
-                    <AccordionTrigger className="text-lg font-medium text-frsh-green py-5">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-frsh-gray-dark/80 pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          ))}
-          
-          {filteredFAQs.length === 0 && (
+          {filteredCategories.length > 0 ? (
+            <Accordion type="single" collapsible className="w-full">
+              {filteredCategories.map((category) => (
+                <div key={category.id} className="mb-6">
+                  <h2 className="text-2xl font-semibold mb-4">{category.title}</h2>
+                  {category.questions.map((faq, index) => (
+                    <AccordionItem 
+                      key={`${category.id}-${index}`} 
+                      value={`${category.id}-${index}`}
+                      className="border-b border-frsh-gray-dark/10"
+                    >
+                      <AccordionTrigger className="text-lg font-medium text-frsh-green py-5">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-frsh-gray-dark/80 pb-5">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </div>
+              ))}
+            </Accordion>
+          ) : (
             <div className="text-center py-12">
               <p className="text-xl font-labil text-frsh-gray-dark/80">
-                No FAQs found for "{searchQuery}". Try a different search term.
+                {t('faqPage.noResults', { query: searchQuery })}
               </p>
             </div>
           )}
           
           <div className="mt-12 bg-frsh-cream/50 border border-frsh-gray-dark/10 rounded-lg p-6 text-center">
-            <h3 className="text-xl font-calvino font-bold text-frsh-green mb-2">Still have questions?</h3>
+            <h3 className="text-xl font-calvino font-bold text-frsh-green mb-2">
+              {t('faqPage.contact.title')}
+            </h3>
             <p className="text-frsh-gray-dark/80 mb-4">
-              Contact our customer support team and we'll be happy to help.
+              {t('faqPage.contact.description')}
             </p>
-            <a 
-              href="https://wa.me/966500961496"
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-3 bg-frsh-green text-white rounded-md hover:bg-frsh-green-light transition-colors"
-            >
-              WhatsApp Us
-            </a>
+            <Button className="flex items-center gap-2 mx-auto">
+              <WhatsAppIcon className="w-5 h-5" />
+              {t('faqPage.contact.button')}
+            </Button>
           </div>
         </div>
       </div>

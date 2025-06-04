@@ -1,4 +1,9 @@
+import { useTranslation } from 'react-i18next';
+
 const Lifestyle = () => {
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
+
   const images = [
     '/lovable-uploads/IMG_6809.JPG',
     '/lovable-uploads/IMG_6819.JPG',
@@ -17,9 +22,9 @@ const Lifestyle = () => {
     <section id="lifestyle" className="section-padding bg-frsh-green text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">Lifestyle</h2>
+          <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">{t('lifestyle.title')}</h2>
           <p className="text-lg sm:text-xl font-labil text-frsh-cream/90 leading-relaxed max-w-2xl mx-auto">
-            A visual taste of what we prepare with love and deliver fresh to your doorstep.
+            {t('lifestyle.description')}
           </p>
         </div>
 
@@ -32,7 +37,10 @@ const Lifestyle = () => {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-frsh-green/50 to-transparent z-10" />
 
           {/* Scroll belt */}
-          <div className="flex w-max animate-scroll-x gap-4">
+          <div 
+            className={`flex w-max gap-4 ${isRTL ? 'animate-scroll-x-rtl' : 'animate-scroll-x'}`}
+            style={{ direction: isRTL ? 'rtl' : 'ltr' }}
+          >
             {doubledImages.map((src, index) => (
               <div
                 key={index}
@@ -47,7 +55,6 @@ const Lifestyle = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

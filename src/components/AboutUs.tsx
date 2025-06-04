@@ -1,27 +1,30 @@
 import { Utensils, MapPin, Home, Clock, Calendar, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+  
   const features = [
     {
       icon: <Calendar className="h-10 w-10 mb-4 text-frsh-yellow" />,
-      title: "Weekly Menu",
-      description: "Fresh meals change weekly so you never get bored.",
+      title: t('aboutUs.features.weeklyMenu.title'),
+      description: t('aboutUs.features.weeklyMenu.description'),
     },
     {
       icon: <Utensils className="h-10 w-10 mb-4 text-frsh-yellow" />,
-      title: "Chef Crafted",
-      description: "Designed by nutritionists, made by professional chefs.",
+      title: t('aboutUs.features.chefCrafted.title'),
+      description: t('aboutUs.features.chefCrafted.description'),
     },
     {
       icon: <Clock className="h-10 w-10 mb-4 text-frsh-yellow" />,
-      title: "Ready in Minutes",
-      description: "Pre-prepared meals ready to eat in just minutes.",
+      title: t('aboutUs.features.readyInMinutes.title'),
+      description: t('aboutUs.features.readyInMinutes.description'),
     },
     {
       icon: <Check className="h-10 w-10 mb-4 text-frsh-yellow" />,
-      title: "Cancel Anytime",
-      description: "No commitments. Pause or cancel whenever you want.",
+      title: t('aboutUs.features.cancelAnytime.title'),
+      description: t('aboutUs.features.cancelAnytime.description'),
     },
   ];
 
@@ -62,9 +65,9 @@ const AboutUs = () => {
             variants={itemVariants}
           >
             <div>
-              <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">Why Choose FRSH?</h2>
+              <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-cream mb-4">{t('aboutUs.whyChoose.title')}</h2>
               <p className="text-lg sm:text-xl font-labil text-frsh-cream/90 mb-6">
-                FRSH saves you time, keeps you healthy, and makes meals something to look forward to.
+                {t('aboutUs.whyChoose.description')}
               </p>
 
               <div className="grid grid-cols-2 gap-3 md:gap-6">
@@ -92,7 +95,7 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Download FRSH
+                {t('aboutUs.cta.downloadFRSH')}
               </motion.a>
               <motion.a
                 href="https://wa.me/966500961496"
@@ -102,7 +105,7 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Chat on WhatsApp
+                {t('aboutUs.cta.chatWhatsApp')}
               </motion.a>
             </div>
           </motion.div>
@@ -133,34 +136,34 @@ const AboutUs = () => {
               </motion.div>
             </motion.div>
 
-            <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-green mb-4">About FRSH</h2>
+            <h2 className="text-3xl sm:text-4xl font-calvino font-bold text-frsh-green mb-4">{t('aboutUs.about.title')}</h2>
             <p className="text-lg sm:text-xl font-labil text-frsh-gray mb-6">
-              Fresh, healthy meals made simple — with chef-designed recipes and ingredients that nourish.
+              {t('aboutUs.about.description')}
             </p>
-            <h3 className="text-xl md:text-2xl font-playfair font-semibold mb-4 text-frsh-green">Our Story</h3>
+            <h3 className="text-xl md:text-2xl font-playfair font-semibold mb-4 text-frsh-green">{t('aboutUs.story.title')}</h3>
             <p className="mb-4 text-frsh-gray text-sm md:text-base">
-              We started FRSH to make eating well easy and enjoyable in Saudi Arabia. No fluff — just good food, fast.
+              {t('aboutUs.story.paragraph1')}
             </p>
             <p className="mb-6 text-frsh-gray text-sm md:text-base">
-              Choose a flexible subscription, pick your meals, and let our chefs handle the rest. Delivered to your door, always fresh.
+              {t('aboutUs.story.paragraph2')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               {[
                 {
                   icon: <Utensils className="text-frsh-green w-5 h-5 md:w-6 md:h-6" />,
-                  title: "Fresh Ingredients",
-                  description: "Locally sourced, premium quality."
+                  title: t('aboutUs.highlights.freshIngredients.title'),
+                  description: t('aboutUs.highlights.freshIngredients.description')
                 },
                 {
                   icon: <MapPin className="text-frsh-green w-5 h-5 md:w-6 md:h-6" />,
-                  title: "Saudi Based",
-                  description: "Proudly supporting local communities."
+                  title: t('aboutUs.highlights.saudiBased.title'),
+                  description: t('aboutUs.highlights.saudiBased.description')
                 },
                 {
                   icon: <Home className="text-frsh-green w-5 h-5 md:w-6 md:h-6" />,
-                  title: "Home Delivery",
-                  description: "Fast, reliable, and convenient."
+                  title: t('aboutUs.highlights.homeDelivery.title'),
+                  description: t('aboutUs.highlights.homeDelivery.description')
                 }
               ].map((item, index) => (
                 <motion.div

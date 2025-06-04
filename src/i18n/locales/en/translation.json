@@ -1,0 +1,292 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "slides": {
+      "slide1": {
+        "title": "Eat Smart.",
+        "subtitle": "Live Fresh."
+      },
+      "slide2": {
+        "title": "Healthy Food.",
+        "subtitle": "Happy Mood."
+      },
+      "slide3": {
+        "title": "Fresh Meals.",
+        "subtitle": "Fresher You."
+      },
+      "slide4": {
+        "title": "Fresh Meals.",
+        "subtitle": "Fresher You."
+      }
+    },
+    "description": "Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.",
+    "downloadApp": "Download The App",
+    "whatsappUs": "WhatsApp Us"
+  },
+  "aboutUs": {
+    "whyChoose": {
+      "title": "Why Choose FRSH?",
+      "description": "FRSH saves you time, keeps you healthy, and makes meals something to look forward to."
+    },
+    "features": {
+      "weeklyMenu": {
+        "title": "Weekly Menu",
+        "description": "Fresh meals change weekly so you never get bored."
+      },
+      "chefCrafted": {
+        "title": "Chef Crafted",
+        "description": "Designed by nutritionists, made by professional chefs."
+      },
+      "readyInMinutes": {
+        "title": "Ready in Minutes",
+        "description": "Pre-prepared meals ready to eat in just minutes."
+      },
+      "cancelAnytime": {
+        "title": "Cancel Anytime",
+        "description": "No commitments. Pause or cancel whenever you want."
+      }
+    },
+    "cta": {
+      "downloadFRSH": "Download FRSH",
+      "chatWhatsApp": "Chat on WhatsApp"
+    },
+    "about": {
+      "title": "About FRSH",
+      "description": "Fresh, healthy meals made simple — with chef-designed recipes and ingredients that nourish."
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "We started FRSH to make eating well easy and enjoyable in Saudi Arabia. No fluff — just good food, fast.",
+      "paragraph2": "Choose a flexible subscription, pick your meals, and let our chefs handle the rest. Delivered to your door, always fresh."
+    },
+    "highlights": {
+      "freshIngredients": {
+        "title": "Fresh Ingredients",
+        "description": "Locally sourced, premium quality."
+      },
+      "saudiBased": {
+        "title": "Saudi Based",
+        "description": "Proudly supporting local communities."
+      },
+      "homeDelivery": {
+        "title": "Home Delivery",
+        "description": "Fast, reliable, and convenient."
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Get answers to the most common questions about our meal plans and delivery service.",
+    "viewAll": "View all FAQs",
+    "questions": {
+      "delivery": {
+        "question": "How does meal delivery work?",
+        "answer": "We prepare fresh meals in our kitchen and deliver them directly to your door. You choose your meal plan, select your preferences, and we take care of the rest."
+      },
+      "freshness": {
+        "question": "How fresh are the meals?",
+        "answer": "Our meals are prepared fresh daily using high-quality ingredients. We ensure they reach you in perfect condition with our temperature-controlled packaging."
+      },
+      "dietary": {
+        "question": "Do you accommodate dietary restrictions?",
+        "answer": "Yes! We offer options for various dietary needs including vegetarian, vegan, gluten-free, and more. You can customize your meal plan according to your preferences."
+      }
+    }
+  },
+  "lifestyle": {
+    "title": "Lifestyle",
+    "description": "A visual taste of what we prepare with love and deliver fresh to your doorstep."
+  },
+  "navbar": {
+    "navigation": {
+      "about": "About",
+      "lifestyle": "Lifestyle",
+      "vision": "Vision",
+      "subscribe": "Subscribe",
+      "faq": "FAQ"
+    },
+    "reachUs": "Reach Us"
+  },
+  "vision": {
+    "title": "The FRSH Vision",
+    "visionText": {
+      "preview": "To become the go-to healthy kitchen...",
+      "full": "To become the go-to healthy kitchen, making fresh, nutritious, and delicious meals easily accessible for everyone striving for a better lifestyle."
+    },
+    "mission": {
+      "title": "The FRSH Mission",
+      "preview": "We are committed to transforming the way people eat...",
+      "full": "We are committed to transforming the way people eat by providing high-quality, balanced, and flavorful meals through a seamless, subscription-based cloud kitchen, by prioritizing fresh ingredients, smart nutrition, and convenience."
+    },
+    "philosophy": {
+      "title": "Our Philosophy",
+      "tagline": "freshness with a twist",
+      "items": {
+        "quality": {
+          "title": "Quality First",
+          "description": "We never compromise on the quality of our ingredients or the meals we prepare."
+        },
+        "health": {
+          "title": "Health Focused",
+          "description": "Our meals are designed with your wellbeing in mind, balanced and nutritious."
+        },
+        "convenience": {
+          "title": "Convenience",
+          "description": "We bring freshness to your doorstep, making healthy eating simple and accessible."
+        }
+      }
+    },
+    "readMore": "Read more",
+    "showLess": "Show less"
+  },
+  "subscribe": {
+    "title": "Subscribe to FRSH",
+    "description": "Start your healthy meal plan subscription today. Choose your package, complete your information, and enjoy fresh meals delivered to your door.",
+    "howItWorks": {
+      "title": "How It Works",
+      "steps": {
+        "1": "Enter the application, choose your package, complete your information, and pay.",
+        "2": "Select your meals based on your dietary preferences and needs.",
+        "3": "Receive fresh, refrigerated meals delivered on the same day to your door.",
+        "4": "Enjoy nutritious meals for up to 3 days when properly refrigerated."
+      }
+    },
+    "getStarted": {
+      "title": "Get Started",
+      "description": "Ready to start your healthy meal subscription? Click below to access our subscription portal.",
+      "button": "Start My Subscription",
+      "orDownload": "Or download our app:"
+    },
+    "paymentMethods": {
+      "title": "Payment methods we accept:"
+    }
+  },
+  "faqPage": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to your questions about our meal plans, delivery service, and more.",
+    "searchPlaceholder": "Search FAQs...",
+    "legalNotice": {
+      "text": "All terms and conditions are subject to modification based on the decision of \"FRSH\" management, and changes will be published in due course.",
+      "appLink": "Visit our app for more information"
+    },
+    "categories": {
+      "ordering": {
+        "title": "Ordering & Delivery",
+        "questions": {
+          "delivery": {
+            "question": "How does meal delivery work?",
+            "answer": "We prepare fresh meals in our kitchen and deliver them directly to your door. You choose your meal plan, select your preferences, and we take care of the rest."
+          },
+          "areas": {
+            "question": "What areas do you deliver to?",
+            "answer": "We currently deliver to all major cities in Saudi Arabia. Enter your postal code in our app to check if we deliver to your specific area."
+          },
+          "frequency": {
+            "question": "How often will I receive deliveries?",
+            "answer": "Depending on your subscription plan, you can receive deliveries daily, three times a week, or weekly. You can select your preferred delivery frequency in our app."
+          }
+        }
+      },
+      "mealPlans": {
+        "title": "Meal Plans & Customization",
+        "questions": {
+          "customization": {
+            "question": "Can I customize my meal plan?",
+            "answer": "Yes! You can customize your meal plan based on your dietary preferences, allergies, and calorie requirements. Our app allows you to easily make these selections."
+          },
+          "freshness": {
+            "question": "How fresh are the meals?",
+            "answer": "Our meals are prepared fresh daily using high-quality ingredients. We ensure they reach you in perfect condition with our temperature-controlled packaging."
+          },
+          "dietary": {
+            "question": "Do you accommodate dietary restrictions?",
+            "answer": "Yes! We offer options for various dietary needs including vegetarian, vegan, gluten-free, and more. You can customize your meal plan according to your preferences."
+          }
+        }
+      },
+      "subscription": {
+        "title": "Subscription & Billing",
+        "questions": {
+          "management": {
+            "question": "How do I manage my subscription?",
+            "answer": "You can manage your subscription through our mobile app. There, you can pause, skip, or cancel deliveries as needed."
+          },
+          "payment": {
+            "question": "What payment methods do you accept?",
+            "answer": "We accept VISA, MADA, Tabby, Tamara, and other major payment methods. Payment is processed securely through our platform."
+          },
+          "cancellation": {
+            "question": "Can I cancel my subscription anytime?",
+            "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will also be deducted."
+          }
+        }
+      },
+      "terms": {
+        "title": "Subscription Terms & Conditions",
+        "questions": {
+          "subscribe": {
+            "question": "How do I subscribe to FRSH meals?",
+            "answer": "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
+          },
+          "cancellationPolicy": {
+            "question": "What's the cancellation policy?",
+            "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
+          },
+          "activation": {
+            "question": "How long does subscription activation take?",
+            "answer": "The subscription activation period is four working days, and you will receive the first meal at the address registered on the website. In case of your absence to receive it or someone substituting for you, we apologize for any compensation (you can change the address at least 2 days in advance)."
+          },
+          "deliveryTimes": {
+            "question": "What are the delivery times?",
+            "answer": "Choose a suitable time for you with flexibility according to the following periods: From 6 AM to 2 PM or From 3 PM to 11 PM. Delivery will be made according to the route selected for neighborhoods in the chosen period."
+          },
+          "promotional": {
+            "question": "Can I cancel my subscription during promotional periods?",
+            "answer": "If the subscription is during promotional or discount periods, it cannot be canceled."
+          },
+          "storage": {
+            "question": "How should I store my meals?",
+            "answer": "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 3 days."
+          },
+          "freeze": {
+            "question": "Can I freeze my subscription?",
+            "answer": "You can freeze your subscription for a period of less than 90 days through the website, provided it is done 4 days before the scheduled date. If you do not freeze your subscription, do not receive your meals, and your subscription period ends, we cannot compensate you."
+          },
+          "renewal": {
+            "question": "How do I renew my subscription?",
+            "answer": "Renew your subscription before it expires with sufficient time to ensure uninterrupted meal delivery, at most 2 days before the expiration date."
+          },
+          "changeMeals": {
+            "question": "Can I change my meals?",
+            "answer": "You can change meals up to 48 hours before the delivery date."
+          }
+        }
+      }
+    },
+    "noResults": "No FAQs found for \"{{query}}\". Try a different search term.",
+    "contact": {
+      "title": "Still have questions?",
+      "description": "Contact our customer support team and we'll be happy to help.",
+      "button": "WhatsApp Us"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "lifestyle": "Lifestyle",
+    "vision": "Vision",
+    "faqs": "FAQs",
+    "copyright": "© {{year}} FRSH. All rights reserved.",
+    "downloadApp": "Download on the App Store"
+  }
+} 

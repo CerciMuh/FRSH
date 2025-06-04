@@ -1,5 +1,6 @@
 import { Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // Custom TikTok icon
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -26,6 +27,8 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-frsh-green text-frsh-cream">
       <div className="container mx-auto px-4 py-10">
@@ -73,7 +76,7 @@ const Footer = () => {
             >
               <img
                 src="/lovable-uploads/apple-store-badge.png"
-                alt="Download on the App Store"
+                alt={t('footer.downloadApp')}
                 className="h-10 rounded-md"
               />
             </a>
@@ -81,26 +84,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center">
-            <h3 className="text-lg font-calvino font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-calvino font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 font-labil">
               <li>
                 <Link to="/#about" className="hover:text-frsh-cream/80 transition-colors">
-                  About Us
+                  {t('footer.aboutUs')}
                 </Link>
               </li>
               <li>
                 <Link to="/#lifestyle" className="hover:text-frsh-cream/80 transition-colors">
-                  Lifestyle
+                  {t('footer.lifestyle')}
                 </Link>
               </li>
               <li>
                 <Link to="/#vision" className="hover:text-frsh-cream/80 transition-colors">
-                  Vision
+                  {t('footer.vision')}
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="hover:text-frsh-cream/80 transition-colors">
-                  FAQs
+                  {t('footer.faqs')}
                 </Link>
               </li>
             </ul>
@@ -108,7 +111,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-frsh-cream/20 mt-8 pt-6 text-center font-labil text-sm text-frsh-cream/80">
-          <p>© {new Date().getFullYear()} FRSH. All rights reserved.</p>
+          <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
         </div>
       </div>
     </footer>

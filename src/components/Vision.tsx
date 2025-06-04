@@ -2,8 +2,10 @@ import { Clock, Hand, Heart, Leaf, Star, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Vision = () => {
+  const { t } = useTranslation();
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [activeCard, setActiveCard] = useState<string | null>(null);
@@ -16,20 +18,20 @@ const Vision = () => {
     {
       id: 'quality',
       icon: Star,
-      title: "Quality First",
-      description: "We never compromise on the quality of our ingredients or the meals we prepare.",
+      title: t('vision.philosophy.items.quality.title'),
+      description: t('vision.philosophy.items.quality.description'),
     },
     {
       id: 'health',
       icon: Heart,
-      title: "Health Focused",
-      description: "Our meals are designed with your wellbeing in mind, balanced and nutritious.",
+      title: t('vision.philosophy.items.health.title'),
+      description: t('vision.philosophy.items.health.description'),
     },
     {
       id: 'convenience',
       icon: Clock,
-      title: "Convenience",
-      description: "We bring freshness to your doorstep, making healthy eating simple and accessible.",
+      title: t('vision.philosophy.items.convenience.title'),
+      description: t('vision.philosophy.items.convenience.description'),
     }
   ];
 
@@ -88,17 +90,17 @@ const Vision = () => {
                 <Leaf className="w-8 h-8 text-frsh-yellow mx-auto" />
               </motion.div>
             </div>
-            <h2 className="text-2xl font-playfair font-semibold mb-4 text-center text-frsh-cream">The FRSH Vision</h2>
+            <h2 className="text-2xl font-playfair font-semibold mb-4 text-center text-frsh-cream">{t('vision.title')}</h2>
             <Collapsible open={openPanel === 'vision'}>
               <CollapsibleTrigger className="w-full">
                 <p className="text-frsh-cream italic text-center">
-                  "To become the go-to healthy kitchen..."
+                  {t('vision.visionText.preview')}
                   <motion.span 
                     className="block text-frsh-yellow mt-2 text-sm"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {openPanel === 'vision' ? 'Show less' : 'Read more'}
+                    {openPanel === 'vision' ? t('vision.showLess') : t('vision.readMore')}
                   </motion.span>
                 </p>
               </CollapsibleTrigger>
@@ -112,8 +114,7 @@ const Vision = () => {
                   >
                     <CollapsibleContent className="mt-4 bg-frsh-yellow/10 p-4 rounded-lg">
                       <p className="text-frsh-cream italic leading-relaxed">
-                        "To become the go-to healthy kitchen, making fresh, nutritious, and delicious
-                        meals easily accessible for everyone striving for a better lifestyle."
+                        {t('vision.visionText.full')}
                       </p>
                     </CollapsibleContent>
                   </motion.div>
@@ -140,17 +141,17 @@ const Vision = () => {
                 <Hand className="w-8 h-8 text-frsh-yellow mx-auto" />
               </motion.div>
             </div>
-            <h2 className="text-2xl font-playfair font-semibold mb-4 text-center text-frsh-cream">The FRSH Mission</h2>
+            <h2 className="text-2xl font-playfair font-semibold mb-4 text-center text-frsh-cream">{t('vision.mission.title')}</h2>
             <Collapsible open={openPanel === 'mission'}>
               <CollapsibleTrigger className="w-full">
                 <p className="text-frsh-cream italic text-center">
-                  "We are committed to transforming the way people eat..."
+                  {t('vision.mission.preview')}
                   <motion.span 
                     className="block text-frsh-yellow mt-2 text-sm"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {openPanel === 'mission' ? 'Show less' : 'Read more'}
+                    {openPanel === 'mission' ? t('vision.showLess') : t('vision.readMore')}
                   </motion.span>
                 </p>
               </CollapsibleTrigger>
@@ -164,9 +165,7 @@ const Vision = () => {
                   >
                     <CollapsibleContent className="mt-4 bg-frsh-yellow/10 p-4 rounded-lg">
                       <p className="text-frsh-cream italic leading-relaxed">
-                        "We are committed to transforming the way people eat by providing high-quality, 
-                        balanced, and flavorful meals through a seamless, subscription-based cloud kitchen, 
-                        by prioritizing fresh ingredients, smart nutrition, and convenience."
+                        {t('vision.mission.full')}
                       </p>
                     </CollapsibleContent>
                   </motion.div>
@@ -188,7 +187,7 @@ const Vision = () => {
           >
             <div className="relative inline-block">
               <h2 className="text-2xl font-playfair font-semibold mb-2 text-frsh-green">
-                Our Philosophy
+                {t('vision.philosophy.title')}
               </h2>
               <motion.div
                 animate={{ 
@@ -205,7 +204,7 @@ const Vision = () => {
               </motion.div>
             </div>
             <p className="text-lg italic text-frsh-gray mb-8 max-w-2xl mx-auto">
-              "freshness with a twist"
+              {t('vision.philosophy.tagline')}
             </p>
           </motion.div>
           

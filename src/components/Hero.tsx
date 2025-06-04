@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sparkles } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   Carousel,
   CarouselApi,
@@ -11,32 +12,30 @@ const heroSlides = [
   {
     id: 1,
     image: "/lovable-uploads/HL COVER 3.jpg",
-    title: "Eat Smart.",
-    subtitle: "Live Fresh.",
+    translationKey: "slide1"
   },
   {
     id: 2,
     image: "/lovable-uploads/HL COVER 2.jpg",
-    title: "Healthy Food.",
-    subtitle: "Happy Mood.",
+    translationKey: "slide2"
   },
   {
     id: 3,
     image: "/lovable-uploads/HL COVER 6.jpg",
-    title: "Fresh Meals.",
-    subtitle: "Fresher You.",
+    translationKey: "slide3"
   },
   {
     id: 4,
     image: "/lovable-uploads/HL COVER 5.jpg",
-    title: "Fresh Meals.",
-    subtitle: "Fresher You.",
+    translationKey: "slide4"
   },
 ];
 
 const Hero = () => {
+  const { t, i18n } = useTranslation();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isRTL = i18n.language === 'ar';
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -49,10 +48,18 @@ const Hero = () => {
     updateIndex();
 
     const interval = setInterval(() => {
-      if (carouselApi.canScrollNext()) {
-        carouselApi.scrollNext();
+      if (isRTL) {
+        if (carouselApi.canScrollPrev()) {
+          carouselApi.scrollPrev();
+        } else {
+          carouselApi.scrollTo(heroSlides.length - 1);
+        }
       } else {
-        carouselApi.scrollTo(0);
+        if (carouselApi.canScrollNext()) {
+          carouselApi.scrollNext();
+        } else {
+          carouselApi.scrollTo(0);
+        }
       }
     }, 5000);
 
@@ -60,18 +67,35 @@ const Hero = () => {
       carouselApi?.off("select", updateIndex);
       clearInterval(interval);
     };
-  }, [carouselApi]);
+  }, [carouselApi, isRTL]);
+
+  // Update scroll direction when language changes
+  useEffect(() => {
+    if (carouselApi) {
+      if (isRTL) {
+        carouselApi.scrollTo(heroSlides.length - 1);
+      } else {
+        carouselApi.scrollTo(0);
+      }
+    }
+  }, [isRTL, carouselApi]);
 
   return (
     <section className="relative w-full h-[92vh] md:h-screen overflow-hidden">
       {/* Carousel Background */}
-      <Carousel setApi={setCarouselApi} className="absolute inset-0 z-0">
+      <Carousel 
+        setApi={setCarouselApi} 
+        className="absolute inset-0 z-0"
+        opts={{
+          direction: isRTL ? 'rtl' : 'ltr'
+        }}
+      >
         <CarouselContent>
           {heroSlides.map((slide) => (
             <CarouselItem key={slide.id} className="basis-full h-[92vh] md:h-screen">
               <img
                 src={slide.image}
-                alt={slide.title}
+                alt={t(`hero.slides.${slide.translationKey}.title`)}
                 className="w-full h-full object-cover scale-110 md:scale-100"
               />
             </CarouselItem>
@@ -85,16 +109,16 @@ const Hero = () => {
       {/* Text Overlay */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4 transition-all duration-700 ease-in-out">
         <h1 className="text-[clamp(1.75rem,4vw,4rem)] md:text-[clamp(2.5rem,6vw,4rem)] font-bold mb-1 md:mb-4 leading-tight drop-shadow-xl animate-fade-in-up">
-          {heroSlides[activeIndex].title}
+          {t(`hero.slides.${heroSlides[activeIndex].translationKey}.title`)}
           <br />
           <span className="text-yellow-300 inline-flex items-center gap-1 md:gap-2">
-            {heroSlides[activeIndex].subtitle}
+            {t(`hero.slides.${heroSlides[activeIndex].translationKey}.subtitle`)}
             <Sparkles className="w-4 h-4 md:w-6 md:h-6 animate-pulse" />
           </span>
         </h1>
 
         <p className="mt-1 md:mt-4 text-[clamp(0.75rem,1.25vw,1.25rem)] text-white/90 max-w-xl drop-shadow animate-fade-in-up">
-          Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.
+          {t('hero.description')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mt-3 md:mt-6">
@@ -104,7 +128,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="px-4 md:px-6 py-2 md:py-3 bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition animate-fade-in-up text-sm md:text-base"
           >
-            Download The App
+            {t('hero.downloadApp')}
           </a>
           <a
             href="https://wa.me/966500961496"
@@ -112,7 +136,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="px-4 md:px-6 py-2 md:py-3 bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition animate-fade-in-up text-sm md:text-base"
           >
-            WhatsApp Us
+            {t('hero.whatsappUs')}
           </a>
         </div>
       </div>

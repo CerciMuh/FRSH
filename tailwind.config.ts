@@ -173,6 +173,10 @@ export default {
 				'scrollX': {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(-50%)' },
+				},
+				'scrollX-rtl': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(50%)' },
 				}
 			},
 			animation: {
@@ -185,7 +189,8 @@ export default {
 				'bounce-soft': 'bounce-soft 2s infinite ease-in-out',
 				'rotate-slow': 'rotate-slow 8s linear infinite',
 				'spin-slow': 'spin-slow 15s linear infinite',
-				'scroll-x': 'scrollX 60s linear infinite'
+				'scroll-x': 'scrollX 60s linear infinite',
+				'scroll-x-rtl': 'scrollX-rtl 60s linear infinite'
 			},
 			transitionProperty: {
 				'height': 'height',
