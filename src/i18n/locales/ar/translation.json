@@ -1,10 +1,11 @@
 {
   "common": {
     "welcome": "مرحبا بك في FRSH",
+    
     "loading": "جاري التحميل",
     "error": "حدث خطأ",
-    "success": "تم التحميل بنجاح"
-  },
+    "success": "تم التحميل بنجاح" 
+  }, 
   "navigation": {
     "home": "الرئيسية",
     "about": "عنا",
