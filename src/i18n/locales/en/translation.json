@@ -27,7 +27,20 @@
       "slide4": {
         "title": "Fresh Meals.",
         "subtitle": "Fresher You."
-      }
+      },
+      "slide5": {
+  "title": "Balanced Meals.",
+  "subtitle": "For a Better Day."
+},
+"slide6": {
+  "title": "Feel-Good Food.",
+  "subtitle": "Made to Lift Your Mood."
+},
+"slide7": {
+  "title": "Meals for Every Day.",
+  "subtitle": "Simple, Fresh, Yours."
+}
+
     },
     "description": "Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.",
     "downloadApp": "Download The App",
@@ -99,7 +112,7 @@
       },
       "dietary": {
         "question": "Do you accommodate dietary restrictions?",
-        "answer": "Yes! We offer options for various dietary needs including vegetarian, vegan, gluten-free, and more. You can customize your meal plan according to your preferences."
+"answer": "We offer a variety of meal options to suit different preferences. However, please note that our meals are not suitable for vegetarian or gluten-free diets at the moment. You can still customize your plan based on available selections."
       }
     }
   },
@@ -288,5 +301,15 @@
     "faqs": "FAQs",
     "copyright": "© {{year}} FRSH. All rights reserved.",
     "downloadApp": "Download on the App Store"
-  }
+  },
+  "subscribeSummary": {
+  "title": "Simple Steps to Subscribe",
+  "steps": [
+    "Open the app and choose your package.",
+    "Pick your meals based on your needs.",
+    "Receive refrigerated meals on the same day.",
+    "Store in the fridge and enjoy within 3 days."
+  ]
+}
+
 } 
