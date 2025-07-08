@@ -68,18 +68,33 @@ const Footer = () => {
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
             </div>
-            <a
-              href="https://apps.apple.com/app/id6742881525"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <img
-                src="/lovable-uploads/apple-store-badge.png"
-                alt={t('footer.downloadApp')}
-                className="h-10 rounded-md"
-              />
-            </a>
+            <div className="flex gap-3 mt-2">
+  <a
+    href="https://apps.apple.com/app/id6742881525"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="/lovable-uploads/apple-store-badge.png"
+      alt={t('footer.downloadApp')}
+      className="h-10 rounded-md"
+    />
+  </a>
+
+  <a
+    href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="/lovable-uploads/google-play-badge1.png"
+      alt={t('footer.downloadGoogle')}
+      className="h-[44px] rounded-md"
+    />
+  </a>
+</div>
+
+
           </div>
 
           {/* Quick Links */}
