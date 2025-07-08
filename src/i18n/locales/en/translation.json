@@ -9,44 +9,46 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact"
-  },
-  "hero": {
-    "slides": {
-      "slide1": {
-        "title": "Eat Smart.",
-        "subtitle": "Live Fresh."
-      },
-      "slide2": {
-        "title": "Healthy Food.",
-        "subtitle": "Happy Mood."
-      },
-      "slide3": {
-        "title": "Fresh Meals.",
-        "subtitle": "Fresher You."
-      },
-      "slide4": {
-        "title": "Fresh Meals.",
-        "subtitle": "Fresher You."
-      },
-      "slide5": {
-  "title": "Balanced Meals.",
-  "subtitle": "For a Better Day."
-},
-"slide6": {
-  "title": "Feel-Good Food.",
-  "subtitle": "Made to Lift Your Mood."
-},
-"slide7": {
-  "title": "Meals for Every Day.",
-  "subtitle": "Simple, Fresh, Yours."
-}
-
+  },"hero": {
+  "slides": {
+    "slide1": {
+      "title": "Eat Smart.",
+      "subtitle": "Live Fresh."
     },
-    "description": "Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.",
-    "downloadApp": "Download The App",
-    "whatsappUs": "WhatsApp Us"
+    "slide2": {
+      "title": "Healthy Food.",
+      "subtitle": "Happy Mood."
+    },
+    "slide3": {
+      "title": "Fresh Meals.",
+      "subtitle": "Fresher You."
+    },
+    "slide4": {
+      "title": "Fresh Meals.",
+      "subtitle": "Fresher You."
+    },
+    "slide5": {
+      "title": "Balanced Meals.",
+      "subtitle": "For a Better Day."
+    },
+    "slide6": {
+      "title": "Feel-Good Food.",
+      "subtitle": "Made to Lift Your Mood."
+    },
+    "slide7": {
+      "title": "Meals for Every Day.",
+      "subtitle": "Simple, Fresh, Yours."
+    }
   },
+  "description": "Chef-crafted meals, delivered fresh to your door. Designed to keep you healthy, happy, and full of flavor.",
+  "downloadApp": "Download The App",
+  "whatsappUs": "WhatsApp Us",
+  "downloadOnAppStore": "Download on the App Store",
+  "downloadOnGooglePlay": "Download on Google Play"
+}
+,
   "aboutUs": {
+    
     "whyChoose": {
       "title": "Why Choose FRSH?",
       "description": "FRSH saves you time, keeps you healthy, and makes meals something to look forward to."
@@ -71,11 +73,15 @@
     },
     "cta": {
       "downloadFRSH": "Download FRSH",
-      "chatWhatsApp": "Chat on WhatsApp"
+      "chatWhatsApp": "Chat on WhatsApp",
+      "downloadOnAppStore": "Download on the App Store",
+"downloadOnGooglePlay": "Download on Google Play"
+
     },
     "about": {
       "title": "About FRSH",
       "description": "Fresh, healthy meals made simple — with chef-designed recipes and ingredients that nourish."
+      
     },
     "story": {
       "title": "Our Story",
