@@ -76,20 +76,37 @@ const SubscribeSection = () => {
                 </Button>
               </a>
             </CardContent>
-            <CardFooter className="flex flex-col items-start pt-4">
-              <p className="text-sm text-frsh-gray-dark/70 mb-2">{t('subscribe.getStarted.orDownload')}</p>
-              <a
-                href="https://apps.apple.com/app/id6742881525"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="/lovable-uploads/apple-store-badge.png"
-                  alt="Download on the App Store"
-                  className="h-10 rounded-md"
-                />
-              </a>
-            </CardFooter>
+            <CardFooter className="flex flex-col pt-4">
+  <p className="text-sm text-frsh-gray-dark/70 mb-2">{t('subscribe.getStarted.orDownload')}</p>
+
+  <div className="flex gap-3">
+    <a
+      href="https://apps.apple.com/app/id6742881525"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="/lovable-uploads/apple-store-badge.png"
+        alt="Download on the App Store"
+        className="h-10 rounded-md"
+      />
+    </a>
+
+    <a
+      href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="/lovable-uploads/google-play-badge.png"
+        alt="Download on Google Play"
+        className="h-10 rounded-md"
+      />
+    </a>
+  </div>
+</CardFooter>
+
+
           </Card>
         </div>
         
