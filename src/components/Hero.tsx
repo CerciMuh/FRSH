@@ -132,13 +132,15 @@ const Hero = () => {
   </a>
 
   <a
-    href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-4 md:px-6 py-2 md:py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition animate-fade-in-up text-sm md:text-base"
-  >
-    {t('hero.downloadOnGooglePlay') || "Download on Google Play"}
-  </a>
+  href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-4 md:px-6 py-2 md:py-3 bg-frsh-green text-white font-semibold rounded-lg shadow hover:bg-frsh-green-light transition animate-fade-in-up text-sm md:text-base"
+>
+  {t('hero.downloadOnGooglePlay') || "Download on Google Play"}
+</a>
+
+
 
   <a
     href="https://wa.me/966500961496"
