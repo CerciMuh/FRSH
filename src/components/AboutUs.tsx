@@ -86,40 +86,7 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 mt-6 md:mt-8">
-              <motion.a
-                href="https://apps.apple.com/app/id6742881525"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 md:px-6 py-2 md:py-3 text-center bg-frsh-yellow text-frsh-gray-dark font-semibold rounded-lg shadow hover:bg-yellow-400 transition-all duration-300 text-sm md:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-{t('aboutUs.cta.downloadOnAppStore')}
-</motion.a>
-<motion.a
-  href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-4 md:px-6 py-2 md:py-3 text-center bg-white/10 text-white font-semibold rounded-lg shadow hover:bg-white/20 transition-all duration-300 text-sm md:text-base"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  {t('aboutUs.cta.downloadOnGooglePlay')}
-</motion.a>
 
-
-              <motion.a
-                href="https://wa.me/966500961496"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 md:px-6 py-2 md:py-3 text-center bg-white text-frsh-green font-semibold rounded-lg shadow hover:bg-white/90 transition-all duration-300 text-sm md:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {t('aboutUs.cta.chatWhatsApp')}
-              </motion.a>
-            </div>
           </motion.div>
 
           {/* Left Column - Image + About */}
