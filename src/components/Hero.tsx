@@ -84,12 +84,13 @@ const Hero = () => {
     <section className="relative w-full h-[92vh] md:h-screen overflow-hidden">
       {/* Carousel Background */}
       <Carousel 
-        setApi={setCarouselApi} 
-        className="absolute inset-0 z-0"
-        opts={{
-          direction: isRTL ? 'rtl' : 'ltr'
-        }}
-      >
+  setApi={setCarouselApi} 
+  className="absolute inset-0 z-0"
+  opts={{
+    direction: 'ltr' // ✅ always use left-to-right so slides rotate correctly
+  }}
+>
+
         <CarouselContent>
           {heroSlides.map((slide) => (
             <CarouselItem key={slide.id} className="basis-full h-[92vh] md:h-screen">

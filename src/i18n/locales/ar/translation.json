@@ -13,35 +13,21 @@
   },
   "hero": {
     "slides": {
-      "slide1": {
-        "title": "تناول الطعام بذكاء.",
-        "subtitle": "عش منتعش."
-      },
-      "slide2": {
-        "title": "طعام صحي.",
-        "subtitle": "مزاج سعيد."
-      },
-      "slide3": {
-        "title": "وجبات طازجة.",
-        "subtitle": "عش منتعش."
-
-      },
-      "slide4": {
-        "title": "وجبات طازجة.",
-        "subtitle": "عش منتعش."
-
-      },
-      "slide5": {
-  "title": "وجبات محسوبة.",
-  "subtitle": "ليوم متوازن."
+    "slide1": {
+  "title": "وجبات فرش",
+  "subtitle": "يومك فرش"
 },
-"slide6": {
-  "title": "أكل يصفي مزاجك.",
-  "subtitle": "واختر ما يناسبك."
+"slide2": {
+  "title": "وجبات محسوبة",
+  "subtitle": "ليوم موزون"
 },
-"slide7": {
-  "title": "وجبات لكل يومك.",
-  "subtitle": "بطريقة طازجة وسهلة."
+"slide3": {
+  "title": "أكل يصفي مزاجك",
+  "subtitle": ""
+},
+"slide4": {
+  "title": "وجبات لكل يومك",
+  "subtitle": ""
 }
 
     },
