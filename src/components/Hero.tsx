@@ -35,7 +35,6 @@ const Hero = () => {
   const { t, i18n } = useTranslation();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const isRTL = i18n.language === 'ar';
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -48,18 +47,10 @@ const Hero = () => {
     updateIndex();
 
     const interval = setInterval(() => {
-      if (isRTL) {
-        if (carouselApi.canScrollPrev()) {
-          carouselApi.scrollPrev();
-        } else {
-          carouselApi.scrollTo(heroSlides.length - 1);
-        }
+      if (carouselApi.canScrollNext()) {
+        carouselApi.scrollNext();
       } else {
-        if (carouselApi.canScrollNext()) {
-          carouselApi.scrollNext();
-        } else {
-          carouselApi.scrollTo(0);
-        }
+        carouselApi.scrollTo(0);
       }
     }, 5000);
 
@@ -67,18 +58,13 @@ const Hero = () => {
       carouselApi?.off("select", updateIndex);
       clearInterval(interval);
     };
-  }, [carouselApi, isRTL]);
+  }, [carouselApi]);
 
-  // Update scroll direction when language changes
   useEffect(() => {
     if (carouselApi) {
-      if (isRTL) {
-        carouselApi.scrollTo(heroSlides.length - 1);
-      } else {
-        carouselApi.scrollTo(0);
-      }
+      carouselApi.scrollTo(0);
     }
-  }, [isRTL, carouselApi]);
+  }, [i18n.language, carouselApi]);
 
   return (
     <section className="relative w-full h-[92vh] md:h-screen overflow-hidden">
@@ -87,10 +73,10 @@ const Hero = () => {
   setApi={setCarouselApi} 
   className="absolute inset-0 z-0"
   opts={{
-    direction: 'ltr' // ✅ always use left-to-right so slides rotate correctly
+    direction: 'ltr' // always use left-to-right so slides rotate correctly
   }}
+  dir="ltr"
 >
-
         <CarouselContent>
           {heroSlides.map((slide) => (
             <CarouselItem key={slide.id} className="basis-full h-[92vh] md:h-screen">
@@ -140,8 +126,6 @@ const Hero = () => {
 >
   {t('hero.downloadOnGooglePlay') || "Download on Google Play"}
 </a>
-
-
 
   <a
     href="https://wa.me/966500961496"
