@@ -28,4 +28,9 @@ i18n
     },
   });
 
+// Ensure dir attribute is set on initial load
+if (typeof window !== 'undefined') {
+  document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+}
+
 export default i18n; 

@@ -169,7 +169,7 @@ const FAQ = () => {
               {t('faqPage.legalNotice.text')}
             </p>
             <a 
-              href="https://app.techrar.com/FRSH" 
+              href="https://apps.apple.com/app/id6742881525" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="mt-2 inline-block text-frsh-green hover:underline text-sm"
