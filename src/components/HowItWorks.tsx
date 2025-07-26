@@ -47,9 +47,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button className="px-8 py-4 bg-frsh-yellow text-frsh-gray-dark font-medium rounded-lg hover:bg-frsh-yellow-light transition-colors">
-            Start My Plan
-          </Button>
+          {/* Button removed */}
         </div>
       </div>
     </section>

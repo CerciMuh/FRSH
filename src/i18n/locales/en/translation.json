@@ -9,7 +9,8 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact"
-  },"hero": {
+  },
+  "hero": {
   "slides": {
     "slide1": {
       "title": "Eat Smart.",
@@ -182,9 +183,9 @@
     },
     "getStarted": {
       "title": "Get Started",
-      "description": "Ready to start your healthy meal subscription? Click below to access our subscription portal.",
-      "button": "Start My Subscription",
-      "orDownload": "Or download our app:"
+      "description": "",
+      "button": "",
+      "orDownload": "Download our app:"
     },
     "paymentMethods": {
       "title": "Payment methods we accept:"
@@ -275,7 +276,7 @@
           },
           "storage": {
             "question": "How should I store my meals?",
-            "answer": "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 3 days."
+            "answer": "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 2 days."
           },
           "freeze": {
             "question": "Can I freeze my subscription?",
@@ -314,7 +315,7 @@
     "Open the app and choose your package.",
     "Pick your meals based on your needs.",
     "Receive refrigerated meals on the same day.",
-    "Store in the fridge and enjoy within 3 days."
+    "Store in the fridge and enjoy within 2 days."
   ]
 }
 

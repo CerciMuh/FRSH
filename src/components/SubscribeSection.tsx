@@ -10,7 +10,8 @@ import {
 import { useTranslation } from 'react-i18next';
 
 const SubscribeSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
 
   return (
     <section className="bg-frsh-cream py-16" id="subscribe">
@@ -59,54 +60,38 @@ const SubscribeSection = () => {
             <CardHeader>
               <CardTitle className="text-frsh-green font-calvino text-2xl">{t('subscribe.getStarted.title')}</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center py-8">
-              <p className="text-frsh-gray-dark/80 mb-6 text-center">
-                {t('subscribe.getStarted.description')}
-              </p>
-              <a 
-                href="https://app.techrar.com/FRSH" 
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button 
-                  className="w-full bg-frsh-yellow hover:bg-frsh-yellow-light text-frsh-gray-dark font-medium px-6 py-6 flex items-center gap-2 justify-center"
-                >
-                  <Calendar className="h-5 w-5" />
-                  {t('subscribe.getStarted.button')}
-                </Button>
-              </a>
+            <CardContent className={`flex flex-col items-center justify-center ${isRTL ? 'py-4' : 'py-8'}`}>
+              {/* Button and description removed */}
             </CardContent>
-            <CardFooter className="flex flex-col pt-4">
-  <p className="text-sm text-frsh-gray-dark/70 mb-2">{t('subscribe.getStarted.orDownload')}</p>
+            <CardFooter className={`flex flex-col ${isRTL ? 'pt-2' : 'pt-4'}`}>
+              <p className="text-sm text-frsh-gray-dark/70 mb-2">{t('subscribe.getStarted.orDownload')}</p>
 
-  <div className="flex gap-3">
-    <a
-      href="https://apps.apple.com/app/id6742881525"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src="/lovable-uploads/apple-store-badge.png"
-        alt="Download on the App Store"
-        className="h-10 rounded-md"
-      />
-    </a>
+              <div className={`flex gap-3 ${isRTL ? 'justify-center' : ''}`}>
+                <a
+                  href="https://apps.apple.com/app/id6742881525"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/lovable-uploads/apple-store-badge.png"
+                    alt="Download on the App Store"
+                    className="h-10 rounded-md"
+                  />
+                </a>
 
-    <a
-      href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src="/lovable-uploads/google-play-badge.png"
-        alt="Download on Google Play"
-        className="h-10 rounded-md"
-      />
-    </a>
-  </div>
-</CardFooter>
-
-
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.yumealz.frsh&hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/lovable-uploads/google-play-badge.png"
+                    alt="Download on Google Play"
+                    className="h-10 rounded-md"
+                  />
+                </a>
+              </div>
+            </CardFooter>
           </Card>
         </div>
         
