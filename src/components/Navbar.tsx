@@ -112,7 +112,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <Link to="/" className="group">
           <img
-            src="/lovable-uploads/logo-arabic-green.png"
+            src="/lovable-uploads/logoen.png"
             alt="FRSH Logo"
             className="w-16 sm:w-20 md:w-24 h-auto object-contain"
           />

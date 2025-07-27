@@ -37,12 +37,13 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <Link to="/">
               <img
-                src="/lovable-uploads/logo-arabic-cream.png"
+                src="/lovable-uploads/logoen1.png"
                 alt="FRSH Logo"
-                className="w-24 h-auto object-contain mb-4"
+                className="w-32 h-auto object-contain mb-6"
+                style={{ minHeight: '60px' }}
               />
             </Link>
-            <div className="flex space-x-3 mb-4">
+            <div className="flex gap-3 mb-4">
               <a
                 href="https://instagram.com/frsh_ksa"
                 target="_blank"

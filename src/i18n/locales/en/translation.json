@@ -135,7 +135,8 @@
       "subscribe": "Subscribe",
       "faq": "FAQ"
     },
-    "reachUs": "Reach Us"
+    "reachUs": "Reach Us",
+    "logo": "/lovable-uploads/logoen.png"
   },
   "vision": {
     "title": "The FRSH Vision",
@@ -254,15 +255,15 @@
       "terms": {
         "title": "Subscription Terms & Conditions",
         "questions": {
-          "subscribe": {
-            "question": "How do I subscribe to FRSH meals?",
-            "answer": "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
-          },
-          "cancellationPolicy": {
-            "question": "What's the cancellation policy?",
-            "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
-          },
-          "activation": {
+                      "subscribe": {
+              "question": "How do I subscribe to FRSH meals?",
+              "answer": "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
+            },
+            "cancellationPolicy": {
+              "question": "What's the cancellation policy?",
+              "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
+            },
+            "activation": {
             "question": "How long does subscription activation take?",
             "answer": "The subscription activation period is four working days, and you will receive the first meal at the address registered on the website. In case of your absence to receive it or someone substituting for you, we apologize for any compensation (you can change the address at least 2 days in advance)."
           },
@@ -270,10 +271,7 @@
             "question": "What are the delivery times?",
             "answer": "Choose a suitable time for you with flexibility according to the following periods: From 6 AM to 2 PM or From 3 PM to 11 PM. Delivery will be made according to the route selected for neighborhoods in the chosen period."
           },
-          "promotional": {
-            "question": "Can I cancel my subscription during promotional periods?",
-            "answer": "If the subscription is during promotional or discount periods, it cannot be canceled."
-          },
+
           "storage": {
             "question": "How should I store my meals?",
             "answer": "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 2 days."
@@ -307,7 +305,8 @@
     "vision": "Vision",
     "faqs": "FAQs",
     "copyright": "© {{year}} FRSH. All rights reserved.",
-    "downloadApp": "Download on the App Store"
+    "downloadApp": "Download on the App Store",
+    "logo": "/lovable-uploads/logoen.png"
   },
   "subscribeSummary": {
   "title": "Simple Steps to Subscribe",
