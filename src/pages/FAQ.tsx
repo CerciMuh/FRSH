@@ -216,7 +216,10 @@ const FAQ = () => {
             <p className="text-frsh-gray-dark/80 mb-4">
               {t('faqPage.contact.description')}
             </p>
-            <Button className="flex items-center gap-2 mx-auto">
+            <Button 
+              className="flex items-center gap-2 mx-auto"
+              onClick={() => window.open('https://api.whatsapp.com/send/?phone=966500961496&text&type=phone_number&app_absent=0', '_blank')}
+            >
               <WhatsAppIcon className="w-5 h-5" />
               {t('faqPage.contact.button')}
             </Button>
