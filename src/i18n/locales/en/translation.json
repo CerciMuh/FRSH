@@ -248,28 +248,28 @@
           },
           "cancellation": {
             "question": "Can I cancel my subscription anytime?",
-            "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will also be deducted."
+            "answer": "Our subscriptions are designed to be flexible, but full cancellations are not available once the plan is activated.\nWe're always here to support you and happy to hear your feedback to improve your experience."
           }
         }
       },
       "terms": {
         "title": "Subscription Terms & Conditions",
         "questions": {
-                      "subscribe": {
-              "question": "How do I subscribe to FRSH meals?",
-              "answer": "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
-            },
-            "cancellationPolicy": {
-              "question": "What's the cancellation policy?",
-              "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
-            },
-            "activation": {
+          "subscribe": {
+            "question": "How do I subscribe to FRSH meals?",
+            "answer": "Enter the application, choose your package, complete your information, pay the required amount, and then select your suitable meals."
+          },
+          "cancellationPolicy": {
+            "question": "What's the cancellation policy?",
+            "answer": "You can cancel the subscription before the arrival of the first meal or within the first two days after delivery. The subscription amount will be refunded within 14 working days after deducting a 10% cancellation fee. Bank transfer fees, electronic payment fees, and the value of received meals will be deducted. After two days, the financial amount cannot be refunded, but you will retain a credit for subscription days that can be transferred to another subscriber."
+          },
+          "activation": {
             "question": "How long does subscription activation take?",
             "answer": "The subscription activation period is four working days, and you will receive the first meal at the address registered on the website. In case of your absence to receive it or someone substituting for you, we apologize for any compensation (you can change the address at least 2 days in advance)."
           },
           "deliveryTimes": {
             "question": "What are the delivery times?",
-            "answer": "Choose a suitable time for you with flexibility according to the following periods: From 6 AM to 2 PM or From 3 PM to 11 PM. Delivery will be made according to the route selected for neighborhoods in the chosen period."
+            "answer": "Delivery is based on the selected meal plan, not on specific days of the week.\nYou can choose a preferred time slot: either from 6 AM to 2 PM or from 3 PM to 11 PM. Deliveries follow designated routes within the selected time period."
           },
 
           "storage": {
@@ -278,7 +278,7 @@
           },
           "freeze": {
             "question": "Can I freeze my subscription?",
-            "answer": "You can freeze your subscription for a period of less than 90 days through the website, provided it is done 4 days before the scheduled date. If you do not freeze your subscription, do not receive your meals, and your subscription period ends, we cannot compensate you."
+            "answer": "Yes, you can freeze your subscription for up to 12 months. If the subscription is not reactivated within a year, it will be automatically canceled."
           },
           "renewal": {
             "question": "How do I renew my subscription?",
