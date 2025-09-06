@@ -77,10 +77,6 @@ const FAQ = () => {
           question: t('faqPage.categories.subscription.questions.payment.question'),
           answer: t('faqPage.categories.subscription.questions.payment.answer')
         },
-        {
-          question: t('faqPage.categories.subscription.questions.cancellation.question'),
-          answer: t('faqPage.categories.subscription.questions.cancellation.answer')
-        }
       ]
     },
     {

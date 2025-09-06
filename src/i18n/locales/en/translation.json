@@ -245,10 +245,6 @@
           "payment": {
             "question": "What payment methods do you accept?",
             "answer": "We accept VISA, MADA, Tabby, Tamara, and other major payment methods. Payment is processed securely through our platform."
-          },
-          "cancellation": {
-            "question": "Can I cancel my subscription anytime?",
-            "answer": "Our subscriptions are designed to be flexible, but full cancellations are not available once the plan is activated.\nWe're always here to support you and happy to hear your feedback to improve your experience."
           }
         }
       },
@@ -277,7 +273,10 @@
             "answer": "Meals will be delivered to you refrigerated on the same day. Keep your meals in the refrigerator to maintain their nutritional value, and they are valid for 2 days."
           },
           "freeze": {
-            "question": "Can I freeze my subscription?",
+          "promotional": {
+            "question": "What promotional offers are available?",
+            "answer": "We offer various promotional offers throughout the year. Follow us on social media and subscribe to our newsletter to get the latest offers and discounts."
+          },            "question": "Can I freeze my subscription?",
             "answer": "Yes, you can freeze your subscription for up to 12 months. If the subscription is not reactivated within a year, it will be automatically canceled."
           },
           "renewal": {
